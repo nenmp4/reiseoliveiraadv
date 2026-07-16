@@ -55,6 +55,55 @@
             document.getElementById('modal-whatsapp').classList.remove('active');
             document.body.style.overflow = '';
         }
+
+        // Mostra as perguntas de qualificação certas conforme a situação escolhida
+        function atualizarPerguntasQualificacao(prefixo) {
+            const situacao = document.getElementById(prefixo + '-situacao').value;
+            const qMulta = document.getElementById(prefixo + '-q-multa');
+            const qAtraso = document.getElementById(prefixo + '-q-atraso');
+            const campoMulta = document.getElementById(prefixo + '-multa25');
+            const campoAtraso = document.getElementById(prefixo + '-atraso180');
+            const aviso = document.getElementById(prefixo + '-warning');
+
+            aviso.style.display = 'none';
+
+            if (situacao === 'Desistência da compra') {
+                qMulta.style.display = 'block';
+                qAtraso.style.display = 'block';
+            } else if (situacao === 'A obra atrasou e quero devolver o imóvel') {
+                qMulta.style.display = 'none';
+                campoMulta.value = '';
+                qAtraso.style.display = 'block';
+            } else {
+                qMulta.style.display = 'none';
+                qAtraso.style.display = 'none';
+                campoMulta.value = '';
+                campoAtraso.value = '';
+            }
+        }
+
+        // Confere se o caso se enquadra nos critérios legais mínimos
+        function verificarQualificacao(situacao, multa25, atraso180) {
+            if (situacao === 'Desistência da compra') {
+                if (!multa25 || !atraso180) {
+                    return { qualifica: false, motivo: 'Por favor, responda as duas perguntas sobre a multa e o atraso da obra.' };
+                }
+                if (multa25 === 'Sim' || atraso180 === 'Sim') {
+                    return { qualifica: true };
+                }
+                return { qualifica: false, motivo: '⚠️ Pelo que você respondeu, a multa está dentro do limite legal (até 25%) e a obra não está atrasada o suficiente para caracterizar abuso. Nesses casos, geralmente não identificamos direito à indenização — mas cada contrato tem particularidades, então se quiser, procure atendimento presencial para uma análise mais detalhada.' };
+            }
+            if (situacao === 'A obra atrasou e quero devolver o imóvel') {
+                if (!atraso180) {
+                    return { qualifica: false, motivo: 'Por favor, responda se a obra está atrasada há mais de 180 dias.' };
+                }
+                if (atraso180 === 'Sim') {
+                    return { qualifica: true };
+                }
+                return { qualifica: false, motivo: '⚠️ Atrasos abaixo de 180 dias geralmente ainda não geram direito à rescisão com indenização. Recomendamos aguardar esse prazo ou procurar atendimento presencial para avaliar o seu caso específico.' };
+            }
+            return { qualifica: false, motivo: 'Por favor, selecione sua situação.' };
+        }
     </script>
 
     <style>
@@ -261,6 +310,17 @@
             color: var(--text-secondary);
             text-align: center;
             margin-top: 1rem;
+        }
+
+        .form-warning {
+            background: rgba(192, 57, 43, 0.12);
+            border: 1px solid #C0392B;
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            margin-bottom: 1.2rem;
+            color: var(--text);
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
         /* Seções de conteúdo educativo */
@@ -587,17 +647,33 @@
                         </div>
                         <div class="form-group">
                             <label for="lead-situacao">Qual é a sua situação? *</label>
-                            <select id="lead-situacao" name="situacao" required>
+                            <select id="lead-situacao" name="situacao" required onchange="atualizarPerguntasQualificacao('lead')">
                                 <option value="">Selecione...</option>
                                 <option value="Desistência da compra">Desistência da compra</option>
-                                <option value="A construtora quer aplicar multa de mais de 25%">A construtora quer aplicar multa de mais de 25%</option>
-                                <option value="A obra está atrasada mais de 180 dias">A obra está atrasada mais de 180 dias</option>
+                                <option value="A obra atrasou e quero devolver o imóvel">A obra atrasou e quero devolver o imóvel</option>
+                            </select>
+                        </div>
+                        <div class="form-group qualifying-question" id="lead-q-multa" style="display: none;">
+                            <label for="lead-multa25">A construtora quer aplicar multa de mais de 25%? *</label>
+                            <select id="lead-multa25" name="multa25">
+                                <option value="">Selecione...</option>
+                                <option value="Sim">Sim</option>
+                                <option value="Não">Não</option>
+                            </select>
+                        </div>
+                        <div class="form-group qualifying-question" id="lead-q-atraso" style="display: none;">
+                            <label for="lead-atraso180">A obra está atrasada mais de 180 dias? *</label>
+                            <select id="lead-atraso180" name="atraso180">
+                                <option value="">Selecione...</option>
+                                <option value="Sim">Sim</option>
+                                <option value="Não">Não</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="lead-valor">Valor já pago (aproximado)</label>
                             <input type="text" id="lead-valor" name="valor" placeholder="Ex: R$ 50.000,00">
                         </div>
+                        <div class="form-warning" id="lead-warning" style="display: none;"></div>
                         <button type="submit" class="btn" style="width: 100%;">
                             <i class="fab fa-whatsapp"></i> Quero falar com um especialista
                         </button>
@@ -669,13 +745,29 @@
                 </div>
                 <div class="form-group">
                     <label for="modal-situacao">Qual é a sua situação? *</label>
-                    <select id="modal-situacao" name="situacao" required>
+                    <select id="modal-situacao" name="situacao" required onchange="atualizarPerguntasQualificacao('modal')">
                         <option value="">Selecione...</option>
                         <option value="Desistência da compra">Desistência da compra</option>
-                        <option value="A construtora quer aplicar multa de mais de 25%">A construtora quer aplicar multa de mais de 25%</option>
-                        <option value="A obra está atrasada mais de 180 dias">A obra está atrasada mais de 180 dias</option>
+                        <option value="A obra atrasou e quero devolver o imóvel">A obra atrasou e quero devolver o imóvel</option>
                     </select>
                 </div>
+                <div class="form-group qualifying-question" id="modal-q-multa" style="display: none;">
+                    <label for="modal-multa25">A construtora quer aplicar multa de mais de 25%? *</label>
+                    <select id="modal-multa25" name="multa25">
+                        <option value="">Selecione...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group qualifying-question" id="modal-q-atraso" style="display: none;">
+                    <label for="modal-atraso180">A obra está atrasada mais de 180 dias? *</label>
+                    <select id="modal-atraso180" name="atraso180">
+                        <option value="">Selecione...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-warning" id="modal-warning" style="display: none;"></div>
                 <button type="submit" class="btn" style="width: 100%;">
                     <i class="fab fa-whatsapp"></i> Ir para o WhatsApp
                 </button>
@@ -741,32 +833,52 @@
                 const nome = document.getElementById('lead-nome').value;
                 const telefone = document.getElementById('lead-telefone').value;
                 const situacao = document.getElementById('lead-situacao').value;
+                const multa25 = document.getElementById('lead-multa25').value;
+                const atraso180 = document.getElementById('lead-atraso180').value;
                 const valor = document.getElementById('lead-valor').value;
+                const aviso = document.getElementById('lead-warning');
 
-                if (nome && telefone && situacao) {
-                    const texto = `Olá! Me chamo ${nome} e vim pelo anúncio sobre devolução de imóvel comprado na planta.
+                if (!nome || !telefone || !situacao) {
+                    aviso.textContent = 'Por favor, preencha nome, WhatsApp e situação.';
+                    aviso.style.display = 'block';
+                    return;
+                }
+
+                const resultado = verificarQualificacao(situacao, multa25, atraso180);
+                if (!resultado.qualifica) {
+                    aviso.textContent = resultado.motivo;
+                    aviso.style.display = 'block';
+                    return;
+                }
+                aviso.style.display = 'none';
+
+                const detalhes = [
+                    multa25 ? `⚖️ Multa acima de 25%: ${multa25}` : null,
+                    atraso180 ? `🕐 Obra atrasada +180 dias: ${atraso180}` : null
+                ].filter(Boolean).join('\n');
+
+                const texto = `Olá! Me chamo ${nome} e vim pelo anúncio sobre devolução de imóvel comprado na planta.
 
 📞 WhatsApp: ${telefone}
 📋 Situação: ${situacao}
+${detalhes}
 💰 Valor já pago: ${valor || 'não informado'}
 
 Gostaria de falar com um especialista.`;
 
-                    const textoCodificado = encodeURIComponent(texto);
-                    gtagReportConversion(`https://wa.me/5511941117545?text=${textoCodificado}`);
+                const textoCodificado = encodeURIComponent(texto);
+                gtagReportConversion(`https://wa.me/5511941117545?text=${textoCodificado}`);
 
-                    document.getElementById('form-lead').reset();
+                document.getElementById('form-lead').reset();
+                atualizarPerguntasQualificacao('lead');
 
-                    const btn = document.querySelector('#form-lead button[type="submit"]');
-                    const originalText = btn.innerHTML;
-                    btn.innerHTML = '<i class="fas fa-check"></i> Redirecionando para o WhatsApp...';
+                const btn = document.querySelector('#form-lead button[type="submit"]');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Redirecionando para o WhatsApp...';
 
-                    setTimeout(() => {
-                        btn.innerHTML = originalText;
-                    }, 3000);
-                } else {
-                    alert('Por favor, preencha nome, WhatsApp e situação.');
-                }
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                }, 3000);
             });
 
             // Formulário do modal - Redireciona para WhatsApp
@@ -776,23 +888,43 @@ Gostaria de falar com um especialista.`;
                 const nome = document.getElementById('modal-nome').value;
                 const telefone = document.getElementById('modal-telefone').value;
                 const situacao = document.getElementById('modal-situacao').value;
+                const multa25 = document.getElementById('modal-multa25').value;
+                const atraso180 = document.getElementById('modal-atraso180').value;
+                const aviso = document.getElementById('modal-warning');
 
-                if (nome && telefone && situacao) {
-                    const texto = `Olá! Me chamo ${nome} e vim pelo anúncio sobre devolução de imóvel comprado na planta.
+                if (!nome || !telefone || !situacao) {
+                    aviso.textContent = 'Por favor, preencha nome, WhatsApp e situação.';
+                    aviso.style.display = 'block';
+                    return;
+                }
+
+                const resultado = verificarQualificacao(situacao, multa25, atraso180);
+                if (!resultado.qualifica) {
+                    aviso.textContent = resultado.motivo;
+                    aviso.style.display = 'block';
+                    return;
+                }
+                aviso.style.display = 'none';
+
+                const detalhes = [
+                    multa25 ? `⚖️ Multa acima de 25%: ${multa25}` : null,
+                    atraso180 ? `🕐 Obra atrasada +180 dias: ${atraso180}` : null
+                ].filter(Boolean).join('\n');
+
+                const texto = `Olá! Me chamo ${nome} e vim pelo anúncio sobre devolução de imóvel comprado na planta.
 
 📞 WhatsApp: ${telefone}
 📋 Situação: ${situacao}
+${detalhes}
 
 Gostaria de falar com um especialista.`;
 
-                    const textoCodificado = encodeURIComponent(texto);
-                    gtagReportConversion(`https://wa.me/5511941117545?text=${textoCodificado}`);
+                const textoCodificado = encodeURIComponent(texto);
+                gtagReportConversion(`https://wa.me/5511941117545?text=${textoCodificado}`);
 
-                    document.getElementById('form-modal').reset();
-                    fecharModalWhatsApp();
-                } else {
-                    alert('Por favor, preencha nome, WhatsApp e situação.');
-                }
+                document.getElementById('form-modal').reset();
+                atualizarPerguntasQualificacao('modal');
+                fecharModalWhatsApp();
             });
 
             // Fechar modal com a tecla Esc
