@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erro do Servidor - Reis e Oliveira Advocacia</title>
+    <meta name="description" content="Estamos enfrentando problemas técnicos. Entre em contato direto com nossos especialistas em Direito Digital e Imobiliário.">
+    <link rel="icon" href="https://conclusao.unieja.com.br/wp-content/uploads/2025/10/logo-reis-e-oliveira.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Variáveis de cores baseadas na paleta fornecida */
+        :root {
+            --primary: #1C545B;
+            --secondary: #3BA2AE;
+            --accent: #0FDFDF;
+            --light: #8DA5A8;
+            --dark: #2F6C6C;
+            --neutral: #B3B5B6;
+            --neutral-dark: #6E787D;
+            --text: #1a1a1a;
+            --white: #FFFFFF;
+            --light-bg: #F8FAFB;
+            --card-bg: #FFFFFF;
+        }
+
+        /* Reset e estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: linear-gradient(135deg, var(--light-bg) 0%, #f0f5f6 100%);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 1.2rem 0;
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(15px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 55px;
+            margin-right: 12px;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2.5rem;
+        }
+
+        nav ul li a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        /* Conteúdo 500 */
+        .error-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 0;
+        }
+
+        .error-container {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+        .error-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .error-message {
+            font-size: 1.2rem;
+            color: var(--neutral-dark);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .error-illustration {
+            font-size: 10rem;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .technical-info {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--accent);
+        }
+
+        .technical-info h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 18px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(15, 223, 223, 0.4);
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(15, 223, 223, 0.6);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-whatsapp:hover {
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+
+            .error-title {
+                font-size: 2rem;
+            }
+
+            .error-illustration {
+                font-size: 6rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .btn {
+                display: block;
+                margin: 1rem auto;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 4rem;
+            }
+
+            .error-title {
+                font-size: 1.5rem;
+            }
+
+            .error-message {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="https://conclusao.unieja.com.br/wp-content/uploads/2025/10/logo-reis-e-oliveira.png" alt="Reis e Oliveira Advocacia" class="logo-img">
+                <span>Reis & Oliveira</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="direito-digital.html">Direito Digital</a></li>
+                    <li><a href="direito-imobiliario.html">Direito Imobiliário</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="error-content">
+        <div class="container error-container">
+            <div class="error-illustration">🔧</div>
+            <div class="error-code">500</div>
+            <h1 class="error-title">Erro do Servidor</h1>
+            <p class="error-message">
+                Estamos enfrentando problemas técnicos momentâneos. 
+                Nossa equipe já foi notificada e está trabalhando para resolver o mais rápido possível.
+            </p>
+
+            <div class="technical-info">
+                <h3>📋 O que aconteceu?</h3>
+                <p>Nosso servidor está temporariamente indisponível. Isso pode ser devido a:</p>
+                <ul style="text-align: left; margin: 1rem 0; padding-left: 2rem;">
+                    <li>Manutenção programada</li>
+                    <li>Problemas técnicos temporários</li>
+                    <li>Alta demanda no momento</li>
+                </ul>
+                <p><strong>Você não precisa se preocupar - seus dados estão seguros!</strong></p>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="index.html" class="btn">Tentar Novamente</a>
+                <a href="https://wa.me/5511941670852?text=Olá! Estou tentando acessar o site mas está com erro 500." class="btn btn-whatsapp" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893-.001-3.189-1.262-6.187-3.55-8.436"/>
+                    </svg>
+                    Contato Direto
+                </a>
+            </div>
+
+            <div style="margin-top: 3rem; padding: 1.5rem; background: var(--white); border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">⚡ Atendimento Imediato</h3>
+                <p style="color: var(--neutral-dark); margin-bottom: 1rem;">Enquanto resolvemos o problema, você pode nos contatar diretamente:</p>
+                <p style="font-weight: 600; color: var(--primary);">📱 WhatsApp: <a href="https://wa.me/5511941670852" style="color: var(--accent); text-decoration: none;">+55 11 94167-0852</a></p>
+                <p style="font-weight: 600; color: var(--primary);">✉️ E-mail: contato@reiseoliveira.com.br</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Reis & Oliveira Advocacia</h3>
+                    <p style="opacity: 0.8;">Especialistas em Direito Digital e Imobiliário, defendendo seus direitos com excelência e comprometimento.</p>
+                </div>
+                <div>
+                    <h3>Contato Direto</h3>
+                    <p style="margin-bottom: 0.5rem; opacity: 0.9;">📱 <a href="https://wa.me/5511941670852" style="color: var(--accent); text-decoration: none;">+55 11 94167-0852</a></p>
+                    <p style="margin-bottom: 0.5rem; opacity: 0.9;">✉️ contato@reiseoliveira.com.br</p>
+                    <p style="opacity: 0.9;">📍 Av. Paulista, 1000 - São Paulo/SP</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Reis e Oliveira Advocacia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

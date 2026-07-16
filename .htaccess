@@ -1,0 +1,150 @@
+# .htaccess - Configurações de Segurança e Otimização
+# Reis e Oliveira Advocacia
+
+# Ativar rewrite engine
+RewriteEngine On
+
+# FORÇAR HTTPS/SSL (redireciona HTTP para HTTPS)
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# REMOVER EXTENSÃO .HTML DAS URLs
+# Remove .html da URL, mas ainda serve o arquivo .html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# REDIRECIONAR URLs COM .html PARA SEM .html (SEO)
+RewriteCond %{THE_REQUEST} \s/([^.]+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# PÁGINAS DE ERRO PERSONALIZADAS
+ErrorDocument 400 /404
+ErrorDocument 401 /404
+ErrorDocument 403 /404
+ErrorDocument 404 /404
+ErrorDocument 500 /500
+
+# PROTEÇÃO CONTRA ACESSO A ARQUIVOS SENSÍVEIS
+<FilesMatch "\.(env|log|ini|conf|sql|gitignore|htaccess|bak|backup|old|swp)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# PREVENIR ACESSO DIRETO A ARQUIVOS .HTML
+<Files *.html>
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# PERMITIR ACESSO ÀS URLs SEM EXTENSÃO
+<FilesMatch "^(index|direito-imobiliario|direito-bancario|direito-previdenciario|direito-digital|contato|404|500)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# SEGURANÇA E HEADERS HTTP
+<IfModule mod_headers.c>
+    # Proteção contra XSS (Cross-Site Scripting)
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Prevenir que o site seja carregado em iframes (clickjacking)
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Prevenir MIME sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # HSTS (HTTP Strict Transport Security) - força HTTPS
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# COMPRESSÃO GZIP PARA PERFORMANCE
+<IfModule mod_deflate.c>
+    # Comprimir HTML, CSS, JavaScript, Texto, XML e fontes
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
+    AddOutputFilterByType DEFLATE application/javascript application/x-javascript application/json
+    AddOutputFilterByType DEFLATE application/xml application/rss+xml application/atom+xml
+    AddOutputFilterByType DEFLATE font/ttf font/otf font/woff font/woff2 image/svg+xml
+    
+    # Remover browser bugs
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    Header append Vary User-Agent
+</IfModule>
+
+# CACHE DE ARQUIVOS ESTÁTICOS PARA PERFORMANCE
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Imagens - cache de 1 ano
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # CSS e JavaScript - cache de 1 mês
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # Fontes - cache de 1 ano
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    
+    # HTML - cache de 2 horas (não guardar por muito tempo)
+    ExpiresByType text/html "access plus 2 hours"
+</IfModule>
+
+# CACHE CONTROLE VIA HEADERS (alternativa ao mod_expires)
+<IfModule mod_headers.c>
+    # Cache de imagens e fontes por 1 ano
+    <FilesMatch "\.(ico|jpg|jpeg|png|gif|webp|svg|woff|woff2|ttf|otf)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+    
+    # Cache de CSS e JS por 1 mês
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </FilesMatch>
+    
+    # Sem cache para HTML
+    <FilesMatch "\.(html)$">
+        Header set Cache-Control "max-age=7200, private, must-revalidate"
+    </FilesMatch>
+</IfModule>
+
+# BLOQUEAR ACESSO A DIRETÓRIOS (proteção extra)
+Options -Indexes
+
+# PREVENIR HOTLINKING (proteger imagens)
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?reiseoliveira\.com\.br [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?google\.com [NC]
+    RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [F,NC]
+</IfModule>
+
+# CONFIGURAÇÕES DE TIMEZONE E CARACTERES
+AddDefaultCharset UTF-8
+SetEnv TZ America/Sao_Paulo
+
+# PHP CONFIGURAÇÕES (se aplicável)
+<IfModule mod_php7.c>
+    php_value upload_max_filesize 64M
+    php_value post_max_size 64M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+</IfModule>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# This domain inherits the “PHP” package.
+# php -- END cPanel-generated handler, do not edit

@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Reis e Oliveira Advocacia</title>
+    <meta name="description" content="Entre em contato com nossos especialistas em Direito Digital, Imobiliário, Bancário e Previdenciário. Atendimento personalizado e soluções jurídicas eficientes.">
+    <link rel="icon" href="https://conclusao.unieja.com.br/wp-content/uploads/2025/10/logo-reis-e-oliveira.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variáveis de cores - Tema Preto e Dourado (igual à index) */
+        :root {
+            --primary: #000000;
+            --secondary: #121212;
+            --accent: #D4AF37;
+            --accent-light: #FFD700;
+            --accent-dark: #B8860B;
+            --text: #FFFFFF;
+            --text-secondary: #CCCCCC;
+            --card-bg: #1A1A1A;
+            --border: #333333;
+            --white: #FFFFFF;
+        }
+
+        /* Reset e estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--primary);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-padding {
+            padding: 6rem 0;
+        }
+
+        /* Animações premium */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header premium */
+        header {
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        header.scrolled {
+            padding: 0.8rem 0;
+            background-color: rgba(0, 0, 0, 0.98);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            animation: fadeInLeft 1s ease;
+        }
+
+        .logo-img {
+            height: 55px;
+            margin-right: 12px;
+            animation: float 4s ease-in-out infinite;
+            filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.3));
+        }
+
+        .logo span {
+            color: var(--accent);
+            position: relative;
+        }
+
+        .logo span::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover span::after {
+            transform: scaleX(1);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+            transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a.active {
+            color: var(--accent);
+        }
+
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        /* Hero Section para página de contato */
+        .page-hero {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.88) 0%, rgba(18, 18, 18, 0.85) 100%),
+                url('https://images.unsplash.com/photo-1563461660947-507ef49e9c47?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text);
+            padding: 14rem 0 8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23D4AF37" fill-opacity="0.03"><path d="M0,0 L100,100 M100,0 L0,100"/></g></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        .page-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            animation: fadeInUp 1s ease 0.2s both;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .page-hero p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.4s both;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            font-weight: 300;
+            color: var(--text-secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: var(--primary);
+            padding: 18px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s;
+        }
+
+        .btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+            color: white;
+        }
+
+        .btn-whatsapp i {
+            color: white;
+        }
+
+        /* Seção de Contato */
+        .contact-section {
+            background-color: var(--secondary);
+            position: relative;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23121212"/><path d="M0 0L100 100M100 0L0 100" stroke="%23333" stroke-width="1"/></svg>');
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+        }
+
+        .contact-info h2 {
+            color: var(--accent);
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .contact-method:hover {
+            border-color: var(--accent);
+            background: rgba(212, 175, 55, 0.05);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-details p {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--accent-light);
+            text-decoration: underline;
+        }
+
+        .office-hours {
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* Formulário de Contato */
+        .contact-form {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+        }
+
+        .contact-form h2 {
+            color: var(--accent);
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--secondary);
+            color: var(--text);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: var(--card-bg);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        /* Especialistas */
+        .experts-section {
+            background-color: var(--primary);
+            position: relative;
+        }
+
+        .experts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .expert-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+        }
+
+        .expert-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.2);
+        }
+
+        .expert-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            overflow: hidden;
+            border: 4px solid var(--accent);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .expert-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .expert-card h3 {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .expert-card .specialty {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .expert-card p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        /* Localização */
+        .location-section {
+            background-color: var(--secondary);
+            position: relative;
+        }
+
+        .location-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23121212"/><path d="M0 0L100 100M100 0L0 100" stroke="%23333" stroke-width="1"/></svg>');
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .location-info {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+        }
+
+        .location-info h2 {
+            color: var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .location-info h3 {
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .location-info p {
+            color: var(--text-secondary);
+        }
+
+        .location-map {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            height: 400px;
+            border: 1px solid var(--border);
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Botão WhatsApp Flutuante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+            transition: all 0.4s ease;
+            text-decoration: none !important;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.7);
+        }
+
+        .whatsapp-float i {
+            font-size: 35px;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a1a1a 100%);
+            color: var(--text);
+            padding: 4rem 0 2rem;
+            position: relative;
+            border-top: 1px solid var(--border);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23D4AF37" fill-opacity="0.02"><path d="M0,0 L100,100 M100,0 L0,100"/></g></svg>');
+            pointer-events: none;
+        }
+
+        footer h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        footer ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer ul li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .contact-grid,
+            .location-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .page-hero {
+                background-attachment: scroll;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                width: 100%;
+                margin-top: 1rem;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav ul li {
+                margin: 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 1rem 0;
+            }
+
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                right: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .page-hero {
+                padding: 12rem 0 6rem;
+            }
+
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .page-hero p {
+                font-size: 1.2rem;
+            }
+
+            .contact-info,
+            .contact-form,
+            .location-info {
+                padding: 2rem;
+            }
+
+            .experts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 16px 32px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5511941117545?text=Olá! Gostaria de mais informações sobre os serviços da Reis e Oliveira Advocacia." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="https://conclusao.unieja.com.br/wp-content/uploads/2025/11/logo-reis.png" alt="Reis e Oliveira Advocacia" class="logo-img">
+                <span>Reis & Oliveira</span>
+            </a>
+            <div class="mobile-menu">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#areas-atuacao">Áreas de Atuação</a></li>
+                    <li><a href="direito-imobiliario.html">Direito Imobiliário</a></li>
+                    <li><a href="direito-bancario.html">Direito Bancário</a></li>
+                    <li><a href="direito-previdenciario.html">Direito Previdenciário</a></li>
+                    <li><a href="direito-digital.html">Direito Digital</a></li>
+                    <li><a href="contato.html" class="active">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container page-hero-content">
+            <h1>Entre em Contato</h1>
+            <p>Estamos prontos para oferecer a melhor solução jurídica para o seu caso</p>
+            <a href="#contact-form" class="btn"><i class="fas fa-paper-plane"></i> Solicitar Consultoria</a>
+        </div>
+    </section>
+
+    <!-- Seção de Contato -->
+    <section id="contato" class="section-padding contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Informações de Contato -->
+                <div class="contact-info animate-on-scroll">
+                    <h2><i class="fas fa-phone-alt"></i> Nossos Contatos</h2>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div class="contact-details">
+                            <h3>WhatsApp</h3>
+                            <p>Atendimento rápido e direto</p>
+                            <a href="https://wa.me/5511941117545" class="contact-link" target="_blank">+55 11 94111-7545</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div class="contact-details">
+                            <h3>Telefone</h3>
+                            <p>Atendimento comercial</p>
+                            <a href="tel:+5511941117545" class="contact-link">(11) 94111-7545</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-details">
+                            <h3>E-mail</h3>
+                            <p>Atendimento por e-mail</p>
+                            <a href="mailto:contato@reiseoliveira.com.br" class="contact-link">contato@reiseoliveira.com.br</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-details">
+                            <h3>Escritório</h3>
+                            <p>Av. Paulista, 777 - Sala 102 Anexo 1207</p>
+                            <p>Bela Vista - São Paulo/SP, 01310-100</p>
+                            <p class="office-hours"><i class="fas fa-clock"></i> Segunda a Sexta: 9h às 18h</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); border-radius: 12px; color: var(--primary); text-align: center;">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--primary);"><i class="fas fa-exclamation-circle"></i> Atendimento Urgente</h4>
+                        <p style="margin-bottom: 1rem; opacity: 0.9;">Problema jurídico urgente? Fale agora com nosso especialista</p>
+                        <a href="https://wa.me/5511941117545?text=URGENTE: Preciso de atendimento jurídico imediato." class="btn" style="background: var(--primary); color: var(--accent);" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Atendimento Imediato
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Formulário de Contato -->
+                <div class="contact-form animate-on-scroll" id="contact-form">
+                    <h2><i class="fas fa-edit"></i> Solicitar Consultoria</h2>
+                    <form id="form-contato">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome Completo *</label>
+                                <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone">Telefone/WhatsApp *</label>
+                                <input type="tel" id="telefone" name="telefone" required placeholder="(11) 94111-7545">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="assunto">Área de Interesse *</label>
+                            <select id="assunto" name="assunto" required>
+                                <option value="">Selecione a área...</option>
+                                <option value="direito-imobiliario">Direito Imobiliário</option>
+                                <option value="direito-bancario">Direito Bancário</option>
+                                <option value="direito-previdenciario">Direito Previdenciário</option>
+                                <option value="direito-digital">Direito Digital</option>
+                                <option value="outro">Outro Assunto</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="urgencia">Nível de Urgência</label>
+                            <select id="urgencia" name="urgencia">
+                                <option value="normal">Normal - Consulta geral</option>
+                                <option value="urgente">Urgente - Precisa de orientação rápida</option>
+                                <option value="muito-urgente">Muito Urgente - Situação crítica</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensagem">Descreva seu caso *</label>
+                            <textarea id="mensagem" name="mensagem" required placeholder="Descreva brevemente sua situação jurídica..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Enviar Solicitação
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Especialistas -->
+    <section class="section-padding experts-section">
+        <div class="container">
+            <div class="section-title" style="margin-bottom: 3rem; text-align: center;">
+                <h2 style="font-size: 2.5rem; position: relative; display: inline-block; padding-bottom: 20px; color: var(--text);">Nossos Especialistas</h2>
+                <div style="width: 100px; height: 4px; background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%); margin: 0 auto; border-radius: 2px;"></div>
+            </div>
+            <div class="experts-grid">
+                <div class="expert-card animate-on-scroll">
+                    <div class="expert-photo">
+                        <img src="https://conclusao.unieja.com.br/wp-content/uploads/2025/11/doutor-paulo.jpg" alt="Dr. Paulo Reis">
+                    </div>
+                    <h3>Dr. Paulo Reis</h3>
+                    <p class="specialty">Direito Imobiliário e Bancário</p>
+                    <p>Com mais de 15 anos de experiência e mais de 5 mil casos resolvidos, atua com excelência em Direito Imobiliário e Bancário.</p>
+                    <a href="https://wa.me/5511941117545?text=Olá Dr. Paulo, gostaria de uma consultoria sobre Direito Imobiliário ou Bancário." class="btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Falar com o Especialista
+                    </a>
+                </div>
+
+                <div class="expert-card animate-on-scroll">
+                    <div class="expert-photo">
+                        <img src="https://conclusao.unieja.com.br/wp-content/uploads/2025/11/doutora-camila.jpg" alt="Dra. Camila Oliveira">
+                    </div>
+                    <h3>Dra. Camila Oliveira</h3>
+                    <p class="specialty">Direito Digital e Previdenciário</p>
+                    <p>Advogada com atuação estratégica e humanizada, auxilia trabalhadores e aposentados na conquista de benefícios e proteção digital.</p>
+                    <a href="https://wa.me/5511941117545?text=Olá Dra. Camila, gostaria de uma consultoria sobre Direito Digital ou Previdenciário." class="btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Falar com a Especialista
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localização -->
+    <section class="section-padding location-section">
+        <div class="container">
+            <div class="location-content">
+                <div class="location-info animate-on-scroll">
+                    <h2><i class="fas fa-map-marked-alt"></i> Nossa Localização</h2>
+                    <div style="margin-bottom: 2rem;">
+                        <h3><i class="fas fa-building"></i> Escritório Central</h3>
+                        <p style="margin-bottom: 0.5rem;">📍 Av. Paulista, 777 - Sala 102 Anexo 1207</p>
+                        <p style="margin-bottom: 1rem;">Bela Vista - São Paulo/SP, 01310-100</p>
+                    </div>
+
+                    <div style="margin-bottom: 2rem;">
+                        <h3><i class="fas fa-clock"></i> Horário de Funcionamento</h3>
+                        <p style="margin-bottom: 0.5rem;">🕒 Segunda a Sexta: 9h às 18h</p>
+                        <p>📅 Sábado: 9h às 12h (com agendamento)</p>
+                    </div>
+
+                    <div>
+                        <h3><i class="fas fa-subway"></i> Como Chegar</h3>
+                        <p style="margin-bottom: 0.5rem;">🚇 Metrô: Estação Paulista (Linha 4 - Amarela)</p>
+                        <p>🚌 Ônibus: Diversas linhas passam pela Av. Paulista</p>
+                    </div>
+                </div>
+
+                <div class="location-map animate-on-scroll">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197353423998!2d-46.65867592468303!3d-23.56135447880077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1699999999999!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2.5rem; margin-bottom: 3rem;">
+                <div class="animate-on-scroll">
+                    <h3>Reis & Oliveira Advocacia</h3>
+                    <p style="opacity: 0.8;">Especialistas em Direito Imobiliário, Bancário, Previdenciário e Digital, defendendo seus direitos com excelência e comprometimento.</p>
+                </div>
+                <div class="animate-on-scroll">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="direito-imobiliario.html">Direito Imobiliário</a></li>
+                        <li><a href="direito-bancario.html">Direito Bancário</a></li>
+                        <li><a href="direito-previdenciario.html">Direito Previdenciário</a></li>
+                        <li><a href="direito-digital.html">Direito Digital</a></li>
+                        <li><a href="contato.html" style="color: var(--accent);">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="animate-on-scroll">
+                    <h3>Contato Rápido</h3>
+                    <p style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 12px;">
+                        <i class="fab fa-whatsapp" style="color: var(--accent);"></i>
+                        <a href="https://wa.me/5511941117545">+55 11 94111-7545</a>
+                    </p>
+                    <p style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 12px;">
+                        <i class="fas fa-envelope" style="color: var(--accent);"></i>
+                        contato@reiseoliveira.com.br
+                    </p>
+                    <p style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 12px;">
+                        <i class="fas fa-map-marker-alt" style="color: var(--accent);"></i>
+                        Av. Paulista, 777 - Sala 102 Anexo 1207 - São Paulo/SP
+                    </p>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--text-secondary);">
+                <p>&copy; 2025 Reis e Oliveira Advocacia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mainNav = document.getElementById('main-nav');
+            
+            mobileMenu.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                mobileMenu.textContent = mainNav.classList.contains('active') ? '✕' : '☰';
+            });
+
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Formulário de contato - Redireciona para WhatsApp
+            document.getElementById('form-contato').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Coletar dados do formulário
+                const nome = document.getElementById('nome').value;
+                const telefone = document.getElementById('telefone').value;
+                const email = document.getElementById('email').value;
+                const assunto = document.getElementById('assunto').value;
+                const urgencia = document.getElementById('urgencia').value;
+                const mensagem = document.getElementById('mensagem').value;
+                
+                if(nome && telefone && email && assunto && mensagem) {
+                    // Criar mensagem para WhatsApp
+                    const texto = `Olá! Me chamo ${nome}. Gostaria de uma consultoria sobre ${assunto}.
+
+📞 Telefone: ${telefone}
+📧 E-mail: ${email}
+⚡ Urgência: ${urgencia}
+
+📝 Minha situação: ${mensagem}`;
+                    
+                    // Codificar mensagem para URL
+                    const textoCodificado = encodeURIComponent(texto);
+                    
+                    // Redirecionar para WhatsApp
+                    window.open(`https://wa.me/5511941117545?text=${textoCodificado}`, '_blank');
+                    
+                    // Limpar formulário
+                    document.getElementById('form-contato').reset();
+                    
+                    // Feedback visual
+                    const btn = document.querySelector('#form-contato button[type="submit"]');
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-check"></i> Mensagem Enviada!';
+                    btn.style.background = 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)';
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.style.background = 'linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%)';
+                    }, 3000);
+                } else {
+                    alert('Por favor, preencha todos os campos obrigatórios.');
+                }
+            });
+
+            // Animações ao scroll
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.animate-on-scroll');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.classList.add('animated');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', animateOnScroll);
+            window.addEventListener('load', animateOnScroll);
+
+            // Fechar menu mobile ao clicar em um link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mainNav.classList.remove('active');
+                    mobileMenu.textContent = '☰';
+                });
+            });
+
+            // Máscara para telefone
+            document.getElementById('telefone').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 11) value = value.substring(0, 11);
+                
+                if (value.length > 10) {
+                    value = value.replace(/^(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+                } else if (value.length > 6) {
+                    value = value.replace(/^(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+                } else if (value.length > 2) {
+                    value = value.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+                } else if (value.length > 0) {
+                    value = value.replace(/^(\d{0,2})/, '($1');
+                }
+                
+                e.target.value = value;
+            });
+        });
+    </script>
+</body>
+</html>

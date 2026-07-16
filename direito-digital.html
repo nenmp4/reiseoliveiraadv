@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direito Digital - Reis e Oliveira Advocacia</title>
+    <meta name="description" content="Especialistas em Direito Digital: proteção para criadores de conteúdo, bloqueio de contas, direitos autorais e consultoria digital.">
+    <link rel="icon" href="https://conclusao.unieja.com.br/wp-content/uploads/2025/10/logo-reis-e-oliveira.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variáveis de cores - Tema Preto e Dourado (igual à index) */
+        :root {
+            --primary: #000000;
+            --secondary: #121212;
+            --accent: #D4AF37;
+            --accent-light: #FFD700;
+            --accent-dark: #B8860B;
+            --text: #FFFFFF;
+            --text-secondary: #CCCCCC;
+            --card-bg: #1A1A1A;
+            --border: #333333;
+            --white: #FFFFFF;
+        }
+
+        /* Reset e estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--primary);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-padding {
+            padding: 6rem 0;
+        }
+
+        /* Animações premium */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header premium */
+        header {
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        header.scrolled {
+            padding: 0.8rem 0;
+            background-color: rgba(0, 0, 0, 0.98);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            animation: fadeInLeft 1s ease;
+        }
+
+        .logo-img {
+            height: 55px;
+            margin-right: 12px;
+            animation: float 4s ease-in-out infinite;
+            filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.3));
+        }
+
+        .logo span {
+            color: var(--accent);
+            position: relative;
+        }
+
+        .logo span::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover span::after {
+            transform: scaleX(1);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+            transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a.active {
+            color: var(--accent);
+        }
+
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        /* Hero Section para páginas específicas */
+        .page-hero {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.88) 0%, rgba(18, 18, 18, 0.85) 100%),
+                url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text);
+            padding: 14rem 0 8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23D4AF37" fill-opacity="0.03"><path d="M0,0 L100,100 M100,0 L0,100"/></g></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        .page-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            animation: fadeInUp 1s ease 0.2s both;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .page-hero p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.4s both;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            font-weight: 300;
+            color: var(--text-secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: var(--primary);
+            padding: 18px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s;
+        }
+
+        .btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+            color: white;
+        }
+
+        .btn-whatsapp i {
+            color: white;
+        }
+
+        /* Conteúdo da página */
+        .page-content {
+            background-color: var(--secondary);
+            position: relative;
+        }
+
+        .page-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23121212"/><path d="M0 0L100 100M100 0L0 100" stroke="%23333" stroke-width="1"/></svg>');
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .problem-solution {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            margin-bottom: 3rem;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-solution::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+        }
+
+        .problem-solution h3 {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .problem-list, .solution-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .problem-list li, .solution-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            padding-left: 2.5rem;
+            color: var(--text-secondary);
+        }
+
+        .problem-list li:last-child, .solution-list li:last-child {
+            border-bottom: none;
+        }
+
+        .problem-list li::before {
+            content: '⚠️';
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .solution-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .expert-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+        }
+
+        .expert-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            overflow: hidden;
+            border: 5px solid var(--accent);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .expert-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .expert-card h3 {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .expert-card p {
+            color: var(--text-secondary);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .process-step h4 {
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+        }
+
+        /* Botão WhatsApp Flutuante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+            transition: all 0.4s ease;
+            text-decoration: none !important;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.7);
+        }
+
+        .whatsapp-float i {
+            font-size: 35px;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a1a1a 100%);
+            color: var(--text);
+            padding: 4rem 0 2rem;
+            position: relative;
+            border-top: 1px solid var(--border);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23D4AF37" fill-opacity="0.02"><path d="M0,0 L100,100 M100,0 L0,100"/></g></svg>');
+            pointer-events: none;
+        }
+
+        footer h3 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .page-hero {
+                background-attachment: scroll;
+            }
+            
+            .page-hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                width: 100%;
+                margin-top: 1rem;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav ul li {
+                margin: 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 1rem 0;
+            }
+
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                right: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .page-hero {
+                padding: 12rem 0 6rem;
+            }
+
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .page-hero p {
+                font-size: 1.2rem;
+            }
+
+            .problem-solution, .expert-card {
+                padding: 2rem;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 16px 32px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5511941117545?text=Olá! Gostaria de mais informações sobre Direito Digital." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="https://conclusao.unieja.com.br/wp-content/uploads/2025/11/logo-reis.png" alt="Reis e Oliveira Advocacia" class="logo-img">
+                <span>Reis & Oliveira</span>
+            </a>
+            <div class="mobile-menu">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#areas-atuacao">Áreas de Atuação</a></li>
+                    <li><a href="direito-imobiliario.html">Direito Imobiliário</a></li>
+                    <li><a href="direito-bancario.html">Direito Bancário</a></li>
+                    <li><a href="direito-previdenciario.html">Direito Previdenciário</a></li>
+                    <li><a href="direito-digital.html" class="active">Direito Digital</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container page-hero-content">
+            <h1>Direito Digital</h1>
+            <p>Proteção jurídica especializada para criadores de conteúdo, influenciadores e empresas no ambiente digital</p>
+            <a href="https://wa.me/5511941117545?text=Olá! Preciso de ajuda com Direito Digital." class="btn btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                Falar com Especialista
+            </a>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <section class="section-padding page-content">
+        <div class="container">
+            <div class="content-grid">
+                <div class="animate-on-scroll">
+                    <div class="problem-solution">
+                        <h3><i class="fas fa-exclamation-triangle" style="color: var(--accent);"></i> Problemas Comuns</h3>
+                        <ul class="problem-list">
+                            <li>Bloqueio injusto de contas em redes sociais</li>
+                            <li>Violação de direitos autorais e propriedade intelectual</li>
+                            <li>Vazamento de dados pessoais e privacidade</li>
+                            <li>Assédio digital e cyberbullying</li>
+                            <li>Problemas com plataformas de conteúdo (YouTube, Instagram, TikTok)</li>
+                            <li>Contratos digitais abusivos</li>
+                            <li>Uso indevido de imagem e marca</li>
+                        </ul>
+                    </div>
+
+                    <div class="problem-solution">
+                        <h3><i class="fas fa-gavel" style="color: var(--accent);"></i> Nossas Soluções</h3>
+                        <ul class="solution-list">
+                            <li>Reativação rápida de contas bloqueadas</li>
+                            <li>Ações judiciais para proteção de direitos autorais</li>
+                            <li>Consultoria em LGPD e proteção de dados</li>
+                            <li>Defesa em casos de danos morais digitais</li>
+                            <li>Negociação com plataformas de conteúdo</li>
+                            <li>Revisão e elaboração de contratos digitais</li>
+                            <li>Registro de marca e propriedade intelectual</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="animate-on-scroll">
+                    <div class="expert-card">
+                        <div class="expert-photo">
+                            <img src="https://conclusao.unieja.com.br/wp-content/uploads/2025/11/doutora-camila.jpg" alt="Dra. Camila Oliveira">
+                        </div>
+                        <h3>Dra. Camila Oliveira</h3>
+                        <p style="color: var(--accent); font-weight: 600; margin-bottom: 1rem;">Especialista em Direito Digital</p>
+                        <p style="margin-bottom: 2rem;">Especialista em Direito Digital com vasta experiência em casos de tecnologia e mídias digitais. Atua na reativação de contas e remoção de conteúdos indevidos, garantindo proteção à imagem e à presença online de seus clientes.</p>
+                        <a href="https://wa.me/5511941117545?text=Olá Dra. Camila, gostaria de uma consultoria sobre Direito Digital." class="btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            Consultoria com a Especialista
+                        </a>
+                    </div>
+
+                    <div class="problem-solution">
+                        <h3><i class="fas fa-phone-alt" style="color: var(--accent);"></i> Atendimento Imediato</h3>
+                        <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">Problema urgente com suas redes sociais? Conteúdo bloqueado? Não perca tempo!</p>
+                        <a href="https://wa.me/5511941117545?text=URGENTE: Preciso de ajuda imediata com problema digital." class="btn btn-whatsapp" style="width: 100%; text-align: center; justify-content: center;" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            Atendimento de Emergência
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Processo de Atuação -->
+            <div class="animate-on-scroll" style="margin-top: 5rem;">
+                <div class="section-title" style="margin-bottom: 3rem;">
+                    <h2>Nosso Processo de Atuação</h2>
+                </div>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4>Análise do Caso</h4>
+                        <p>Avaliamos toda a documentação e situação para entender o contexto completo</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4>Estratégia Jurídica</h4>
+                        <p>Desenvolvemos a melhor estratégia para resolver seu problema rapidamente</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4>Atuação Imediata</h4>
+                        <p>Agimos de forma rápida para minimizar prejuízos e restaurar direitos</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4>Acompanhamento</h4>
+                        <p>Monitoramos todo o processo até a solução definitiva do caso</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2.5rem; margin-bottom: 3rem;">
+                <div class="animate-on-scroll">
+                    <h3>Reis & Oliveira Advocacia</h3>
+                    <p style="opacity: 0.8;">Especialistas em Direito Digital, Imobiliário, Bancário e Previdenciário, defendendo seus direitos com excelência e comprometimento.</p>
+                </div>
+                <div class="animate-on-scroll">
+                    <h3>Contato Rápido</h3>
+                    <p style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 12px;">
+                        <i class="fab fa-whatsapp" style="color: var(--accent);"></i>
+                        <a href="https://wa.me/5511941117545" style="color: var(--accent);">+55 11 94111-7545</a>
+                    </p>
+                    <p style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 12px;">
+                        <i class="fas fa-envelope" style="color: var(--accent);"></i>
+                        contato@reiseoliveira.com.br
+                    </p>
+                    <p style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 12px;">
+                        <i class="fas fa-map-marker-alt" style="color: var(--accent);"></i>
+                        Av. Paulista, 777 - Sala 102 Anexo 1207 - São Paulo/SP
+                    </p>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--text-secondary);">
+                <p>&copy; 2025 Reis e Oliveira Advocacia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mainNav = document.getElementById('main-nav');
+            
+            mobileMenu.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                mobileMenu.textContent = mainNav.classList.contains('active') ? '✕' : '☰';
+            });
+            
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Animações ao scroll
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.animate-on-scroll');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.classList.add('animated');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', animateOnScroll);
+            window.addEventListener('load', animateOnScroll);
+
+            // Fechar menu mobile ao clicar em um link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mainNav.classList.remove('active');
+                    mobileMenu.textContent = '☰';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

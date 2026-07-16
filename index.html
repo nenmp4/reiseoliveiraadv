@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reis e Oliveira Advocacia - Excelência em Direito Digital e Imobiliário</title>
+    <meta name="description" content="Escritório de advocacia especializado em Direito Digital, Imobiliário, Bancário e Previdenciário. Soluções jurídicas personalizadas com resultados comprovados.">
+    <link rel="icon" href="https://conclusao.unieja.com.br/wp-content/uploads/2025/10/logo-reis-e-oliveira.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variáveis de cores - Tema Preto e Dourado */
+        :root {
+            --primary: #000000;
+            --secondary: #121212;
+            --accent: #D4AF37;
+            --accent-light: #FFD700;
+            --accent-dark: #B8860B;
+            --text: #FFFFFF;
+            --text-secondary: #CCCCCC;
+            --card-bg: #1A1A1A;
+            --border: #333333;
+        }
+
+        /* Reset e estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--primary);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-padding {
+            padding: 6rem 0;
+        }
+
+        /* Animações premium */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes slideInFromTop {
+            from {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header premium */
+        header {
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            backdrop-filter: blur(15px);
+            animation: slideInFromTop 0.8s ease-out;
+            border-bottom: 1px solid var(--border);
+        }
+
+        header.scrolled {
+            padding: 0.8rem 0;
+            background-color: rgba(0, 0, 0, 0.98);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            animation: fadeInLeft 1s ease;
+        }
+
+        .logo-img {
+            height: 55px;
+            margin-right: 12px;
+            animation: float 4s ease-in-out infinite;
+            filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.3));
+        }
+
+        .logo span {
+            color: var(--accent);
+            position: relative;
+        }
+
+        .logo span::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover span::after {
+            transform: scaleX(1);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+            transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a.active {
+            color: var(--accent);
+        }
+
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu:hover {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        /* Hero Section premium com Parallax - ANIMAÇÕES CORRIGIDAS */
+        .hero {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.88) 0%, rgba(18, 18, 18, 0.85) 100%),
+                url('https://conclusao.unieja.com.br/wp-content/uploads/2025/11/doutor-paulo-e-camila.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: var(--text);
+            padding: 16rem 0 12rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23D4AF37" fill-opacity="0.03"><path d="M0,0 L100,100 M100,0 L0,100"/></g></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            animation: fadeInUp 1s ease 0.2s both;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.4s both;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            font-weight: 300;
+            color: var(--text-secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: var(--primary);
+            padding: 18px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s;
+        }
+
+        .btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--accent);
+            box-shadow: none;
+            margin-left: 20px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-8px) scale(1.05);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+            color: white;
+        }
+
+        .btn-container {
+            animation: fadeInUp 1s ease 0.6s both;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* CORREÇÃO DOS ÍCONES - Remover sublinhado */
+        .btn-whatsapp,
+        .member-social a,
+        .whatsapp-float {
+            text-decoration: none !important;
+        }
+
+        .btn-whatsapp i,
+        .member-social a i,
+        .whatsapp-float i {
+            text-decoration: none;
+        }
+
+        /* Seções gerais premium */
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title h2 {
+            font-size: 3.2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 20px;
+            color: var(--text);
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        /* Cards de especialidades premium */
+        .specialties {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+        }
+
+        .specialty-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            z-index: 1;
+            border: 1px solid var(--border);
+        }
+
+        .specialty-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.2);
+        }
+
+        .specialty-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+            z-index: 2;
+        }
+
+        .card-icon {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--accent);
+            font-size: 4rem;
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23D4AF37" fill-opacity="0.05"><circle cx="20" cy="20" r="10"/><circle cx="80" cy="80" r="15"/><circle cx="50" cy="50" r="8"/></g></svg>');
+        }
+
+        .card-content {
+            padding: 3rem;
+        }
+
+        .card-content h3 {
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .card-content p {
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .card-content ul {
+            list-style-type: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .card-content ul li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+        }
+
+        .card-content ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Seção sobre premium */
+        .about {
+            background: linear-gradient(135deg, var(--secondary) 0%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23121212"/><path d="M0 0L100 100M100 0L0 100" stroke="%23333" stroke-width="1"/></svg>');
+            opacity: 0.5;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-text h2 {
+            color: var(--text);
+            margin-bottom: 2rem;
+            font-size: 2.8rem;
+        }
+
+        .about-text p {
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+        }
+
+        .stat:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            transform: perspective(1000px) rotateY(-8deg);
+            transition: all 0.6s ease;
+            border: 1px solid var(--border);
+        }
+
+        .about-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(255, 215, 0, 0.2) 100%);
+            z-index: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Seção de equipe premium */
+        .team {
+            background-color: var(--primary);
+            position: relative;
+        }
+
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        .team-member {
+            text-align: center;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            border: 1px solid var(--border);
+        }
+
+        .team-member:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.2);
+        }
+
+        .member-photo {
+            height: 380px;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s ease;
+        }
+
+        .team-member:hover .member-photo img {
+            transform: scale(1.1);
+        }
+
+        .member-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(212, 175, 55, 0.2) 100%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .team-member:hover .member-photo::before {
+            opacity: 1;
+        }
+
+        .member-info {
+            padding: 2.5rem;
+        }
+
+        .member-info h3 {
+            color: var(--text);
+            margin-bottom: 0.8rem;
+            font-size: 1.6rem;
+        }
+
+        .member-info p {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .member-info .specialty {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .member-social a {
+            color: var(--text-secondary);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--secondary);
+            text-decoration: none !important;
+        }
+
+        .member-social a:hover {
+            color: var(--primary);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        /* Botão WhatsApp Flutuante premium */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+            transition: all 0.4s ease;
+            text-decoration: none !important;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.7);
+        }
+
+        /* Responsividade premium */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.8rem;
+            }
+            
+            nav ul li {
+                margin-left: 1.2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero {
+                background-attachment: scroll;
+                padding: 14rem 0 10rem;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            
+            .about-image {
+                order: -1;
+                transform: perspective(1000px) rotateY(0deg);
+            }
+            
+            nav ul li {
+                margin-left: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                width: 100%;
+                margin-top: 1rem;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav ul li {
+                margin: 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 1rem 0;
+            }
+
+            .mobile-menu {
+                display: block;
+                position: absolute;
+                right: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .hero {
+                padding: 12rem 0 8rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .btn-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+            }
+
+            .section-padding {
+                padding: 5rem 0;
+            }
+
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+
+            .specialties {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-members {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .btn {
+                padding: 16px 32px;
+                font-size: 1rem;
+            }
+            
+            .card-content {
+                padding: 2rem;
+            }
+            
+            .member-info {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5511941117545?text=Olá! Gostaria de mais informações sobre os serviços da Reis e Oliveira Advocacia." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp" style="font-size: 35px; color: white;"></i>
+    </a>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="https://conclusao.unieja.com.br/wp-content/uploads/2025/11/logo-reis.png" alt="Reis e Oliveira Advocacia" class="logo-img">
+                <span>Reis & Oliveira</span>
+            </a>
+            <div class="mobile-menu">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="#areas-atuacao">Áreas de Atuação</a></li>
+                    <li><a href="direito-imobiliario.html">Direito Imobiliário</a></li>
+                    <li><a href="direito-bancario.html">Direito Bancário</a></li>
+                    <li><a href="direito-previdenciario.html">Direito Previdenciário</a></li>
+                    <li><a href="direito-digital.html">Direito Digital</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section - ANIMAÇÃO CORRIGIDA -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-title">Excelência Jurídica que Transforma Resultados</h1>
+            <p class="hero-subtitle">Defendemos seus direitos com estratégias inovadoras nas áreas de Direito Digital, Imobiliário, Bancário e Previdenciário</p>
+            <div class="btn-container hero-buttons">
+                <a href="contato.html" class="btn">Consultoria Especializada</a>
+                <a href="https://wa.me/5511941117545?text=Olá! Gostaria de mais informações sobre os serviços da Reis e Oliveira Advocacia." class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Falar no WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Áreas de Atuação -->
+    <section id="areas-atuacao" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Áreas de Atuação</h2>
+                <p>Especialistas em soluções jurídicas personalizadas com foco em resultados eficientes e estratégicos</p>
+            </div>
+            <div class="specialties">
+                <!-- Direito Imobiliário -->
+                <div class="specialty-card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Direito Imobiliário</h3>
+                        <p>Atuação completa em questões relacionadas a compra, venda, locação, regularização de imóveis e disputas condominiais.</p>
+                        <ul>
+                            <li>Contratos de Compra e Venda</li>
+                            <li>Usucapião e Regularização</li>
+                            <li>Direito Condominial</li>
+                            <li>Despejo e Ações Possessórias</li>
+                            <li>Due Diligence Imobiliária</li>
+                        </ul>
+                        <a href="direito-imobiliario.html" class="btn btn-secondary">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Direito Bancário -->
+                <div class="specialty-card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Direito Bancário</h3>
+                        <p>Defesa dos direitos do consumidor em relações com instituições financeiras, revisão de contratos e cobranças abusivas.</p>
+                        <ul>
+                            <li>Revisão de Contratos Bancários</li>
+                            <li>Proteção ao Consumidor Financeiro</li>
+                            <li>Negociação de Dívidas</li>
+                            <li>Cobranças Abusivas</li>
+                            <li>Recuperação de Valores</li>
+                        </ul>
+                        <a href="direito-bancario.html" class="btn btn-secondary">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Direito Previdenciário -->
+                <div class="specialty-card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Direito Previdenciário</h3>
+                        <p>Atuação em benefícios do INSS, aposentadorias, auxílios e revisões de valores para garantir seus direitos previdenciários.</p>
+                        <ul>
+                            <li>Aposentadorias (Tempo, Idade, Híbrida)</li>
+                            <li>Auxílio Doença e Acidente</li>
+                            <li>Pensão por Morte</li>
+                            <li>Revisão de Benefícios</li>
+                            <li>LOAS/BPC</li>
+                        </ul>
+                        <a href="direito-previdenciario.html" class="btn btn-secondary">Saiba Mais</a>
+                    </div>
+                </div>
+
+                <!-- Direito Digital -->
+                <div class="specialty-card animate-on-scroll">
+                    <div class="card-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Direito Digital</h3>
+                        <p>Proteção jurídica no ambiente digital, incluindo LGPD, crimes cibernéticos, propriedade intelectual e comércio eletrônico.</p>
+                        <ul>
+                            <li>LGPD e Proteção de Dados</li>
+                            <li>Contratos Digitais e E-commerce</li>
+                            <li>Crimes Cibernéticos</li>
+                            <li>Propriedade Intelectual Digital</li>
+                            <li>Compliance Digital</li>
+                        </ul>
+                        <a href="direito-digital.html" class="btn btn-secondary">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section id="sobre" class="about section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sobre Nós</h2>
+                <p>Comprometidos com a excelência jurídica e resultados que transformam a vida de nossos clientes</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text animate-on-scroll">
+                    <h2>Excelência Jurídica com Foco no Cliente</h2>
+                    <p>O escritório Reis & Oliveira Advocacia combina tradição e inovação para oferecer soluções jurídicas personalizadas e eficazes. Nossa equipe é formada por especialistas com vasta experiência nas áreas de Direito Digital, Imobiliário, Bancário e Previdenciário.</p>
+                    <p>Atuamos com estratégias modernas e tecnologia de ponta para garantir a melhor defesa dos direitos de nossos clientes, sempre com transparência, ética e comprometimento com os resultados.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat animate-on-scroll">
+                            <span class="stat-number" data-count="500">0</span>
+                            <span class="stat-text">Casos Resolvidos</span>
+                        </div>
+                        <div class="stat animate-on-scroll">
+                            <span class="stat-number" data-count="15">0</span>
+                            <span class="stat-text">Anos de Experiência</span>
+                        </div>
+                        <div class="stat animate-on-scroll">
+                            <span class="stat-number" data-count="98">0</span>
+                            <span class="stat-text">% de Sucesso</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image animate-on-scroll">
+                    <img src="https://conclusao.unieja.com.br/wp-content/uploads/2025/11/doutor-paulo-e-camila.jpg" alt="Equipe Reis e Oliveira Advocacia">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nossa Equipe -->
+    <section id="equipe" class="team section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossa Equipe</h2>
+                <p>Profissionais especializados e comprometidos com a excelência em cada caso</p>
+            </div>
+            <div class="team-members">
+                <div class="team-member animate-on-scroll">
+                    <div class="member-photo">
+                        <img src="https://conclusao.unieja.com.br/wp-content/uploads/2025/11/doutor-paulo.jpg" alt="Dr. Paulo Reis">
+                    </div>
+                    <div class="member-info">
+                        <h3>Dr. Paulo Reis</h3>
+                        <p class="specialty">Direito Imobiliário e Bancário</p>
+                        <p>Com mais de 15 anos de experiência e mais de 5 mil casos resolvidos, o Dr. Paulo Reis atua com excelência em Direito Imobiliário, com foco em devolução de imóveis na planta e distratos, e em em Direito Bancário, conduzindo ações revisionais de financiamentos e empréstimos com precisão técnica e resultados consistentes..</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member animate-on-scroll">
+                    <div class="member-photo">
+                        <img src="https://conclusao.unieja.com.br/wp-content/uploads/2025/11/doutora-camila.jpg" alt="Dra. Camila Oliveira">
+                    </div>
+                    <div class="member-info">
+                        <h3>Dra. Camila Oliveira</h3>
+                        <p class="specialty">Direito Digital e Previdenciário</p>
+                        <p>Advogada com atuação estratégica e humanizada, unindo experiência técnica e sensibilidade nas causas que envolvem pessoas e seus direitos. No Direito Previdenciário, auxilia trabalhadores e aposentados na conquista de benefícios e na realização de planejamentos seguros.
+                           No Direito Digital, atua na reativação de contas e remoção de conteúdos indevidos, garantindo proteção à imagem e à presença online de seus clientes.</p>
+                        <div class="member-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="section-padding" style="background-color: var(--secondary);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Entre em Contato</h2>
+                <p>Estamos prontos para oferecer a melhor solução jurídica para o seu caso</p>
+            </div>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <div class="btn-container">
+                    <a href="https://wa.me/5511941117545?text=Olá! Gostaria de mais informações sobre os serviços da Reis e Oliveira Advocacia." class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        Falar no WhatsApp
+                    </a>
+                    <a href="contato.html" class="btn">Formulário de Contato</a>
+                </div>
+                <p style="margin-top: 3rem; color: var(--text-secondary); font-size: 1.1rem;">
+                    <strong>Endereço:</strong> Av. Paulista, 777 - Sala 102 Anexo 1207 - São Paulo/SP<br>
+                    <strong>Telefone:</strong> (11) 94111-7545<br>
+                    <strong>Email:</strong> contato@reiseoliveira.com.br
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Menu Mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mainNav = document.getElementById('main-nav');
+            
+            mobileMenu.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                mobileMenu.textContent = mainNav.classList.contains('active') ? '✕' : '☰';
+            });
+            
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // ANIMAÇÃO DO HERO CORRIGIDA
+            function initHeroAnimations() {
+                const heroTitle = document.querySelector('.hero-title');
+                const heroSubtitle = document.querySelector('.hero-subtitle');
+                const heroButtons = document.querySelector('.hero-buttons');
+                
+                // Reset para estado inicial
+                heroTitle.style.opacity = '0';
+                heroTitle.style.transform = 'translateY(50px)';
+                heroSubtitle.style.opacity = '0';
+                heroSubtitle.style.transform = 'translateY(50px)';
+                heroButtons.style.opacity = '0';
+                heroButtons.style.transform = 'translateY(50px)';
+                
+                // Animações sequenciais
+                setTimeout(() => {
+                    heroTitle.style.transition = 'all 1s ease 0.2s';
+                    heroTitle.style.opacity = '1';
+                    heroTitle.style.transform = 'translateY(0)';
+                }, 200);
+                
+                setTimeout(() => {
+                    heroSubtitle.style.transition = 'all 1s ease 0.4s';
+                    heroSubtitle.style.opacity = '1';
+                    heroSubtitle.style.transform = 'translateY(0)';
+                }, 400);
+                
+                setTimeout(() => {
+                    heroButtons.style.transition = 'all 1s ease 0.6s';
+                    heroButtons.style.opacity = '1';
+                    heroButtons.style.transform = 'translateY(0)';
+                }, 600);
+            }
+            
+            // Animações ao scroll
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.animate-on-scroll');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.classList.add('animated');
+                    }
+                });
+            };
+            
+            // Contador de estatísticas CORRIGIDO
+            function animateCounters() {
+                const counters = document.querySelectorAll('.stat-number');
+                
+                counters.forEach(counter => {
+                    // Verificar se este contador já foi animado
+                    if (counter.getAttribute('data-animated') === 'true') {
+                        return; // Pular se já foi animado
+                    }
+                    
+                    const target = +counter.getAttribute('data-count');
+                    const count = +counter.innerText;
+                    
+                    // Só animar se ainda não atingiu o valor alvo
+                    if (count < target) {
+                        // Marcar como animado
+                        counter.setAttribute('data-animated', 'true');
+                        
+                        let current = 0;
+                        const increment = target / 50;
+                        
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                counter.innerText = target;
+                                clearInterval(timer);
+                            } else {
+                                counter.innerText = Math.floor(current);
+                            }
+                        }, 30);
+                    }
+                });
+            }
+            
+            // Observador para animações
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        
+                        // Se é um elemento de estatística, animar os contadores
+                        if (entry.target.classList.contains('stat')) {
+                            setTimeout(animateCounters, 300);
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // Aplicar observador apenas para elementos que não estão no hero
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                // Não observar elementos do hero
+                if (!el.closest('.hero')) {
+                    observer.observe(el);
+                }
+            });
+            
+            // Inicializar animações
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // Fechar menu mobile ao clicar em um link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mainNav.classList.remove('active');
+                    mobileMenu.textContent = '☰';
+                });
+            });
+            
+            // Inicializar animação do hero
+            setTimeout(initHeroAnimations, 500);
+        });
+    </script>
+</body>
+</html>
