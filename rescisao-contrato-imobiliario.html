@@ -12,6 +12,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- ============================================================
+         RASTREAMENTO DE CONVERSÃO — GOOGLE ADS
+         Preencha com os dados da sua conta antes de rodar a campanha:
+         Google Ads → Ferramentas e Configurações → Conversões → + Nova
+         ação de conversão → Site. Lá o Google gera o ID (AW-XXXXXXXXXX)
+         e o RÓTULO (label) — troque as DUAS ocorrências de cada um
+         abaixo (aqui no <head> e nas 4 chamadas gtagReportConversion
+         mais abaixo no <body>).
+         ============================================================ -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-SEU_ID_AQUI"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'AW-SEU_ID_AQUI');
+
+        // Dispara a conversão e só então segue pro WhatsApp (com fallback
+        // de segurança caso o gtag não carregue a tempo).
+        function gtagReportConversion(url) {
+            const finalizar = function () {
+                if (typeof url !== 'undefined') {
+                    window.open(url, '_blank');
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-SEU_ID_AQUI/SEU_ROTULO_AQUI',
+                'event_callback': finalizar
+            });
+            setTimeout(finalizar, 1000); // fallback: garante o redirect mesmo se o gtag travar
+            return false;
+        }
+    </script>
+
     <style>
         /* Hero Section para páginas específicas (o resto é global, em css/style.css) */
         .page-hero {
@@ -389,7 +423,7 @@
 </head>
 <body>
     <!-- Botão WhatsApp Flutuante -->
-    <a href="https://wa.me/5511941117545?text=Olá! Vim pelo anúncio sobre rescisão de contrato imobiliário e gostaria de falar com um especialista." class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/5511941117545?text=Olá! Vim pelo anúncio sobre rescisão de contrato imobiliário e gostaria de falar com um especialista." class="whatsapp-float" target="_blank" onclick="return gtagReportConversion(this.href);">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -419,7 +453,7 @@
         <div class="container page-hero-content">
             <h1>Rescisão de Contrato Imobiliário: Recupere Seu Dinheiro Sem Pagar Multa Abusiva</h1>
             <p>Desistiu da compra de um imóvel na planta ou a construtora não cumpriu o combinado? Saiba exatamente quanto você tem direito a receber de volta.</p>
-            <a href="https://wa.me/5511941117545?text=Olá! Vim pelo anúncio sobre rescisão de contrato imobiliário e gostaria de falar com um especialista." class="btn btn-whatsapp" target="_blank">
+            <a href="https://wa.me/5511941117545?text=Olá! Vim pelo anúncio sobre rescisão de contrato imobiliário e gostaria de falar com um especialista." class="btn btn-whatsapp" target="_blank" onclick="return gtagReportConversion(this.href);">
                 <i class="fab fa-whatsapp"></i>
                 Falar agora com um especialista
             </a>
@@ -527,7 +561,7 @@
                 <a href="#formulario" class="btn">
                     <i class="fas fa-arrow-down"></i> Preencher formulário
                 </a>
-                <a href="https://wa.me/5511941117545?text=Olá! Vim pelo anúncio sobre rescisão de contrato imobiliário e gostaria de falar com um especialista." class="btn btn-whatsapp" target="_blank">
+                <a href="https://wa.me/5511941117545?text=Olá! Vim pelo anúncio sobre rescisão de contrato imobiliário e gostaria de falar com um especialista." class="btn btn-whatsapp" target="_blank" onclick="return gtagReportConversion(this.href);">
                     <i class="fab fa-whatsapp"></i> Falar direto no WhatsApp
                 </a>
             </div>
@@ -603,7 +637,7 @@
 Gostaria de falar com um especialista.`;
 
                     const textoCodificado = encodeURIComponent(texto);
-                    window.open(`https://wa.me/5511941117545?text=${textoCodificado}`, '_blank');
+                    gtagReportConversion(`https://wa.me/5511941117545?text=${textoCodificado}`);
 
                     document.getElementById('form-lead').reset();
 
