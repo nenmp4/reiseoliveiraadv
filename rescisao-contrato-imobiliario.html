@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rescisão de Contrato Imobiliário: Recupere Seu Dinheiro | Reis e Oliveira Advocacia</title>
+    <meta name="description" content="Comprou imóvel na planta e precisa desistir? Descubra seus direitos na rescisão de contrato imobiliário e evite pagar multa abusiva. Fale agora com um especialista.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="https://conclusao.unieja.com.br/wp-content/uploads/2025/10/logo-reis-e-oliveira.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Hero Section para páginas específicas (o resto é global, em css/style.css) */
+        .page-hero {
+            background:
+                linear-gradient(135deg, rgba(0, 0, 0, 0.88) 0%, rgba(18, 18, 18, 0.85) 100%),
+                url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text);
+            padding: 14rem 0 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23D4AF37" fill-opacity="0.03"><path d="M0,0 L100,100 M100,0 L0,100"/></g></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        .page-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+            animation: fadeInUp 1s ease 0.2s both;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.4s both;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            font-weight: 300;
+            color: var(--text-secondary);
+        }
+
+        .trust-bar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+            animation: fadeInUp 1s ease 0.6s both;
+            position: relative;
+            z-index: 1;
+        }
+
+        .trust-item {
+            text-align: center;
+        }
+
+        .trust-item strong {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        .trust-item span {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Conteúdo da página */
+        .page-content {
+            background-color: var(--secondary);
+            position: relative;
+        }
+
+        .page-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23121212"/><path d="M0 0L100 100M100 0L0 100" stroke="%23333" stroke-width="1"/></svg>');
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .page-content .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Formulário de captação (elemento principal de conversão) */
+        .lead-section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            margin-top: -8rem;
+        }
+
+        .lead-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+        }
+
+        .lead-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .lead-grid h2 {
+            color: var(--text);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .lead-grid h2 span {
+            color: var(--accent);
+        }
+
+        .lead-grid > div:first-child p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .lead-bullets {
+            list-style: none;
+        }
+
+        .lead-bullets li {
+            padding: 0.6rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .lead-bullets li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .lead-form .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .lead-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        .lead-form input,
+        .lead-form select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            background: var(--secondary);
+            color: var(--text);
+        }
+
+        .lead-form input:focus,
+        .lead-form select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .lead-form input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .lead-disclaimer {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        /* Seções de conteúdo educativo */
+        .info-section {
+            margin-top: 5rem;
+        }
+
+        .info-section h2 {
+            color: var(--text);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-section h2 span {
+            color: var(--accent);
+        }
+
+        .info-section > .container > p,
+        .info-block > p {
+            color: var(--text-secondary);
+            max-width: 800px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .info-block {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+        }
+
+        .info-block h3 {
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .info-block p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .info-block ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .info-block ul li {
+            padding: 0.6rem 0;
+            padding-left: 1.8rem;
+            position: relative;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-block ul li:last-child {
+            border-bottom: none;
+        }
+
+        .info-block ul li::before {
+            content: '⚖';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(212, 175, 55, 0.04) 100%);
+            border: 1px solid var(--accent);
+            border-radius: 16px;
+            padding: 2rem 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .highlight-box h3 {
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-box p {
+            color: var(--text-secondary);
+        }
+
+        .cta-final {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .cta-final h2 {
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .cta-final p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .lead-grid,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lead-section {
+                margin-top: -5rem;
+            }
+
+            .page-hero {
+                background-attachment: scroll;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 12rem 0 5rem;
+            }
+
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .page-hero p {
+                font-size: 1.1rem;
+            }
+
+            .lead-section,
+            .info-block,
+            .cta-final {
+                padding: 2rem;
+            }
+
+            .trust-bar {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .btn {
+                padding: 16px 32px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5511941117545?text=Olá! Vim pelo anúncio sobre rescisão de contrato imobiliário e gostaria de falar com um especialista." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="https://conclusao.unieja.com.br/wp-content/uploads/2025/11/logo-reis.png" alt="Reis e Oliveira Advocacia" class="logo-img">
+                <span>Reis & Oliveira</span>
+            </a>
+            <div class="mobile-menu">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="direito-imobiliario.html">Direito Imobiliário</a></li>
+                    <li><a href="direito-bancario.html">Direito Bancário</a></li>
+                    <li><a href="direito-previdenciario.html">Direito Previdenciário</a></li>
+                    <li><a href="direito-digital.html">Direito Digital</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container page-hero-content">
+            <h1>Rescisão de Contrato Imobiliário: Recupere Seu Dinheiro Sem Pagar Multa Abusiva</h1>
+            <p>Desistiu da compra de um imóvel na planta ou a construtora não cumpriu o combinado? Saiba exatamente quanto você tem direito a receber de volta.</p>
+            <a href="https://wa.me/5511941117545?text=Olá! Vim pelo anúncio sobre rescisão de contrato imobiliário e gostaria de falar com um especialista." class="btn btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                Falar agora com um especialista
+            </a>
+            <div class="trust-bar">
+                <div class="trust-item">
+                    <strong>15+</strong>
+                    <span>anos de experiência</span>
+                </div>
+                <div class="trust-item">
+                    <strong>5 mil+</strong>
+                    <span>casos resolvidos</span>
+                </div>
+                <div class="trust-item">
+                    <strong>100%</strong>
+                    <span>online, sem sair de casa</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <section class="section-padding page-content" style="padding-top: 0;">
+        <div class="container">
+
+            <!-- Formulário de captação -->
+            <div class="lead-section animate-on-scroll" id="formulario">
+                <div class="lead-grid">
+                    <div>
+                        <h2>Descubra <span>quanto você tem direito</span> a receber</h2>
+                        <p>Preencha os dados abaixo e fale diretamente pelo WhatsApp com a nossa equipe. A análise inicial é gratuita e sem compromisso.</p>
+                        <ul class="lead-bullets">
+                            <li>Resposta em poucos minutos, direto no seu WhatsApp</li>
+                            <li>Análise gratuita do seu contrato</li>
+                            <li>Atendimento 100% online</li>
+                        </ul>
+                    </div>
+                    <form class="lead-form" id="form-lead">
+                        <div class="form-group">
+                            <label for="lead-nome">Nome Completo *</label>
+                            <input type="text" id="lead-nome" name="nome" required placeholder="Seu nome completo">
+                        </div>
+                        <div class="form-group">
+                            <label for="lead-telefone">WhatsApp *</label>
+                            <input type="tel" id="lead-telefone" name="telefone" required placeholder="(11) 94111-7545">
+                        </div>
+                        <div class="form-group">
+                            <label for="lead-situacao">Qual é a sua situação? *</label>
+                            <select id="lead-situacao" name="situacao" required>
+                                <option value="">Selecione...</option>
+                                <option value="Desisti da compra e quero cancelar o contrato">Desisti da compra e quero cancelar o contrato</option>
+                                <option value="A construtora atrasou a entrega do imóvel">A construtora atrasou a entrega do imóvel</option>
+                                <option value="O imóvel tem vícios/problemas de construção">O imóvel tem vícios/problemas de construção</option>
+                                <option value="Já fiz o distrato e acho a multa abusiva">Já fiz o distrato e acho a multa abusiva</option>
+                                <option value="Outra situação">Outra situação</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="lead-valor">Valor já pago (aproximado)</label>
+                            <input type="text" id="lead-valor" name="valor" placeholder="Ex: R$ 50.000,00">
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Quero falar com um especialista
+                        </button>
+                        <p class="lead-disclaimer">Ao enviar, você será redirecionado para o WhatsApp da Reis & Oliveira Advocacia.</p>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Conteúdo educativo -->
+            <div class="info-section animate-on-scroll">
+                <h2>O que é a <span>rescisão de contrato imobiliário</span>?</h2>
+                <p>Também chamada de distrato imobiliário, a rescisão acontece quando comprador ou construtora não têm mais condições (ou interesse) de manter o contrato de compra e venda de um imóvel. Uma crise financeira, a perda do emprego, a negativa de financiamento ou o descumprimento do contrato pela construtora são os motivos mais comuns. O importante é saber que, na maioria dos casos, você tem direito a reaver parte ou a totalidade do valor pago — e é exatamente esse valor que muitas construtoras tentam reduzir indevidamente.</p>
+
+                <div class="info-grid">
+                    <div class="info-block">
+                        <h3><i class="fas fa-house-circle-xmark"></i> Se você desistiu da compra</h3>
+                        <p>Você pode pedir a rescisão do contrato até a entrega das chaves, mesmo estando inadimplente. A construtora tem o direito de reter uma parte do valor pago para cobrir custos administrativos, mas essa retenção tem limite:</p>
+                        <ul>
+                            <li>Até 20% em contratos assinados antes de dezembro de 2018</li>
+                            <li>Até 25% em contratos mais recentes (regra geral)</li>
+                            <li>Até 50% quando o empreendimento está em patrimônio de afetação</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h3><i class="fas fa-building-circle-exclamation"></i> Se a culpa é da construtora</h3>
+                        <p>Quando o problema é da construtora — atraso na entrega, imóvel diferente do prometido ou vícios de construção — a regra muda completamente a seu favor:</p>
+                        <ul>
+                            <li>Devolução de 100% do valor pago, com juros e correção monetária</li>
+                            <li>Sem qualquer desconto de multa</li>
+                            <li>Direito a indenização por atraso (0,5% ao mês sobre o valor do imóvel)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h3><i class="fas fa-scale-balanced"></i> O que diz a Justiça</h3>
+                    <p>A Súmula 543 do Superior Tribunal de Justiça (STJ) garante a devolução imediata dos valores pagos: integral quando a culpa é exclusiva da construtora, ou parcial quando o comprador é quem desiste. Além disso, a Lei do Distrato (Lei nº 13.786/2018) e diversas decisões do TJ-SP (como a Apelação Cível nº 1011401-80.2017.8.26.0002) reconhecem que multas acima de 20% a 25% podem ser consideradas abusivas — ou seja, mesmo que o contrato preveja uma retenção maior, é possível questionar esse valor na Justiça.</p>
+                </div>
+            </div>
+
+            <!-- CTA final -->
+            <div class="cta-final animate-on-scroll">
+                <h2>Não deixe a construtora reter mais do que a lei permite</h2>
+                <p>Cada contrato tem particularidades. Fale agora com nossa equipe e entenda, gratuitamente, quanto você tem direito a receber de volta.</p>
+                <a href="#formulario" class="btn">
+                    <i class="fas fa-arrow-down"></i> Preencher formulário
+                </a>
+                <a href="https://wa.me/5511941117545?text=Olá! Vim pelo anúncio sobre rescisão de contrato imobiliário e gostaria de falar com um especialista." class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Falar direto no WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2.5rem; margin-bottom: 3rem;">
+                <div class="animate-on-scroll">
+                    <h3>Reis & Oliveira Advocacia</h3>
+                    <p style="opacity: 0.8;">Especialistas em Direito Imobiliário, Bancário, Previdenciário e Digital, defendendo seus direitos com excelência e comprometimento.</p>
+                </div>
+                <div class="animate-on-scroll">
+                    <h3>Contato Rápido</h3>
+                    <p style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 12px;">
+                        <i class="fab fa-whatsapp" style="color: var(--accent);"></i>
+                        <a href="https://wa.me/5511941117545" style="color: var(--accent);">+55 11 94111-7545</a>
+                    </p>
+                    <p style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 12px;">
+                        <i class="fas fa-envelope" style="color: var(--accent);"></i>
+                        contato@reiseoliveira.com.br
+                    </p>
+                    <p style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 12px;">
+                        <i class="fas fa-map-marker-alt" style="color: var(--accent);"></i>
+                        Av. Paulista, 777 - Sala 102 Anexo 1207 - São Paulo/SP
+                    </p>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--text-secondary);">
+                <p>&copy; 2025 Reis e Oliveira Advocacia. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mainNav = document.getElementById('main-nav');
+
+            mobileMenu.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                mobileMenu.textContent = mainNav.classList.contains('active') ? '✕' : '☰';
+            });
+
+            // Header scroll effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Formulário de captação - Redireciona para WhatsApp
+            document.getElementById('form-lead').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const nome = document.getElementById('lead-nome').value;
+                const telefone = document.getElementById('lead-telefone').value;
+                const situacao = document.getElementById('lead-situacao').value;
+                const valor = document.getElementById('lead-valor').value;
+
+                if (nome && telefone && situacao) {
+                    const texto = `Olá! Me chamo ${nome} e vim pelo anúncio sobre rescisão de contrato imobiliário.
+
+📞 WhatsApp: ${telefone}
+📋 Situação: ${situacao}
+💰 Valor já pago: ${valor || 'não informado'}
+
+Gostaria de falar com um especialista.`;
+
+                    const textoCodificado = encodeURIComponent(texto);
+                    window.open(`https://wa.me/5511941117545?text=${textoCodificado}`, '_blank');
+
+                    document.getElementById('form-lead').reset();
+
+                    const btn = document.querySelector('#form-lead button[type="submit"]');
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-check"></i> Redirecionando para o WhatsApp...';
+
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                    }, 3000);
+                } else {
+                    alert('Por favor, preencha nome, WhatsApp e situação.');
+                }
+            });
+
+            // Animações ao scroll
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.animate-on-scroll');
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    if (elementPosition < screenPosition) {
+                        element.classList.add('animated');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', animateOnScroll);
+            window.addEventListener('load', animateOnScroll);
+
+            // Fechar menu mobile ao clicar em um link
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mainNav.classList.remove('active');
+                    mobileMenu.textContent = '☰';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

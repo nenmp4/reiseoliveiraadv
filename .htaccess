@@ -44,7 +44,7 @@ ErrorDocument 500 /500
 </FilesMatch>
 
 # PERMITIR ACESSO ÀS URLs SEM EXTENSÃO
-<FilesMatch "^(index|direito-imobiliario|direito-bancario|direito-previdenciario|direito-digital|contato|404|500)$">
+<FilesMatch "^(index|direito-imobiliario|direito-bancario|direito-previdenciario|direito-digital|contato|404|500|rescisao-contrato-imobiliario)$">
     Order Allow,Deny
     Allow from all
 </FilesMatch>
