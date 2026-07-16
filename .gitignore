@@ -1,0 +1,4 @@
+# Segredos e arquivos de runtime do auto deploy (nunca versionar)
+.webhook_secret
+.deploy_pending
+.deploy.log

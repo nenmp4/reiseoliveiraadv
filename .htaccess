@@ -31,6 +31,12 @@ ErrorDocument 500 /500
     Deny from all
 </FilesMatch>
 
+# BLOQUEAR ACESSO AO REPOSITÓRIO GIT E ARQUIVOS DE DEPLOY
+<IfModule mod_rewrite.c>
+    RewriteRule \.(git|svn|hg)(/.*)?$ - [F,L]
+    RewriteRule ^\.(deploy_pending|deploy\.log|webhook_secret)$ - [F,L]
+</IfModule>
+
 # PREVENIR ACESSO DIRETO A ARQUIVOS .HTML
 <Files *.html>
     Order Deny,Allow
