@@ -444,6 +444,14 @@
             margin-bottom: 2rem;
         }
 
+        .cta-final-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+        }
+
         /* Modal do WhatsApp */
         .modal-overlay {
             display: none;
@@ -718,12 +726,14 @@
             <div class="cta-final animate-on-scroll">
                 <h2>Não deixe a construtora reter mais do que a lei permite</h2>
                 <p>Cada contrato tem particularidades. Fale agora com nossa equipe e entenda, gratuitamente, quanto você tem direito a receber de volta.</p>
-                <a href="#formulario" class="btn">
-                    <i class="fas fa-arrow-down"></i> Preencher formulário
-                </a>
-                <a href="#" class="btn btn-whatsapp" onclick="abrirModalWhatsApp(); return false;">
-                    <i class="fab fa-whatsapp"></i> Falar direto no WhatsApp
-                </a>
+                <div class="cta-final-buttons">
+                    <a href="#formulario" class="btn">
+                        <i class="fas fa-arrow-down"></i> Preencher formulário
+                    </a>
+                    <a href="#" class="btn btn-whatsapp" onclick="abrirModalWhatsApp(); return false;">
+                        <i class="fab fa-whatsapp"></i> Falar direto no WhatsApp
+                    </a>
+                </div>
             </div>
         </div>
     </section>
