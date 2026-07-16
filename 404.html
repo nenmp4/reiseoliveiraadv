@@ -15,9 +15,9 @@
         :root {
             --primary: #000000;
             --secondary: #121212;
-            --accent: #D6336C;
-            --accent-light: #E85D8A;
-            --accent-dark: #A61E4D;
+            --accent: #D4AF37;
+            --accent-light: #FFD700;
+            --accent-dark: #B8860B;
             --text: #FFFFFF;
             --text-secondary: #CCCCCC;
             --card-bg: #1A1A1A;
@@ -88,7 +88,7 @@
         .logo-img {
             height: 55px;
             margin-right: 12px;
-            filter: drop-shadow(0 5px 15px rgba(214, 51, 108, 0.3));
+            filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.3));
         }
 
         .logo span {
@@ -151,7 +151,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23D6336C" fill-opacity="0.03"><path d="M0,0 L100,100 M100,0 L0,100"/></g></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23D4AF37" fill-opacity="0.03"><path d="M0,0 L100,100 M100,0 L0,100"/></g></svg>');
             animation: float 20s infinite linear;
             pointer-events: none;
         }
@@ -177,7 +177,7 @@
             margin-bottom: 1rem;
             line-height: 1;
             animation: float 3s ease-in-out infinite;
-            text-shadow: 0 0 30px rgba(214, 51, 108, 0.3);
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
         }
 
         .error-title {
@@ -207,8 +207,8 @@
 
         .btn {
             display: inline-block;
-            background: linear-gradient(135deg, #9B2242 0%, #7B1E3A 100%);
-            color: #FFFFFF;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: var(--primary);
             padding: 18px 40px;
             border-radius: 8px;
             text-decoration: none;
@@ -217,7 +217,7 @@
             border: none;
             cursor: pointer;
             font-size: 1.1rem;
-            box-shadow: 0 10px 25px rgba(123, 30, 58, 0.4);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
             margin: 0.5rem;
             position: relative;
             overflow: hidden;
@@ -236,7 +236,7 @@
 
         .btn:hover {
             transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(123, 30, 58, 0.6);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.6);
         }
 
         .btn:hover::before {
@@ -246,31 +246,31 @@
         .btn-secondary {
             background: transparent;
             color: var(--text);
-            border: 2px solid #9B2242;
+            border: 2px solid var(--accent);
             box-shadow: none;
         }
 
         .btn-secondary:hover {
-            background: #9B2242;
-            color: #FFFFFF;
+            background: var(--accent);
+            color: var(--primary);
         }
 
         .btn-whatsapp {
-            background: linear-gradient(135deg, #7B1E3A 0%, #5C1730 100%);
-            box-shadow: 0 10px 25px rgba(123, 30, 58, 0.4);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            color: white;
+            color: var(--primary);
         }
 
         .btn-whatsapp:hover {
-            box-shadow: 0 15px 35px rgba(123, 30, 58, 0.6);
-            color: white;
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.6);
+            color: var(--primary);
         }
 
         .btn-whatsapp i {
-            color: white;
+            color: var(--primary);
         }
 
         /* Links úteis */
@@ -318,7 +318,7 @@
 
         .link-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(214, 51, 108, 0.2);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
             border-color: var(--accent);
         }
 
@@ -355,7 +355,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23D6336C" fill-opacity="0.02"><path d="M0,0 L100,100 M100,0 L0,100"/></g></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23D4AF37" fill-opacity="0.02"><path d="M0,0 L100,100 M100,0 L0,100"/></g></svg>');
             pointer-events: none;
         }
 

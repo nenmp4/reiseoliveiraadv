@@ -6,23 +6,19 @@
  * Estilos específicos de cada página continuam no <style> de cada arquivo.
  */
 
-/* Variáveis de cores - Tema Preto e Dourado, botões em bordô */
+/* Variáveis de cores - Tema Preto e Dourado */
 :root {
     --primary: #000000;
     --secondary: #121212;
-    --accent: #D6336C;
-    --accent-light: #E85D8A;
-    --accent-dark: #A61E4D;
+    --accent: #D4AF37;
+    --accent-light: #FFD700;
+    --accent-dark: #B8860B;
     --text: #FFFFFF;
     --text-secondary: #CCCCCC;
     --card-bg: #1A1A1A;
     --border: #333333;
     --white: #FFFFFF;
-
-    --btn-light: #9B2242;
-    --btn: #7B1E3A;
-    --btn-dark: #5C1730;
-    --btn-rgb: 123, 30, 58;
+    --accent-rgb: 212, 175, 55;
 }
 
 /* Reset e estilos base */
@@ -88,15 +84,15 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes pulse {
     0% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(var(--btn-rgb), 0.7);
+        box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.7);
     }
     70% {
         transform: scale(1.05);
-        box-shadow: 0 0 0 15px rgba(var(--btn-rgb), 0);
+        box-shadow: 0 0 0 15px rgba(var(--accent-rgb), 0);
     }
     100% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(var(--btn-rgb), 0);
+        box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0);
     }
 }
 
@@ -163,7 +159,7 @@ header.scrolled {
     height: 55px;
     margin-right: 12px;
     animation: float 4s ease-in-out infinite;
-    filter: drop-shadow(0 5px 15px rgba(214, 51, 108, 0.3));
+    filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.3));
 }
 
 .logo span {
@@ -252,8 +248,8 @@ nav ul li a.active::after {
 /* Botões */
 .btn {
     display: inline-block;
-    background: linear-gradient(135deg, var(--btn-light) 0%, var(--btn) 100%);
-    color: #FFFFFF;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    color: var(--primary);
     padding: 18px 40px;
     border-radius: 8px;
     text-decoration: none;
@@ -262,7 +258,7 @@ nav ul li a.active::after {
     border: none;
     cursor: pointer;
     font-size: 1.1rem;
-    box-shadow: 0 10px 25px rgba(var(--btn-rgb), 0.4);
+    box-shadow: 0 10px 25px rgba(var(--accent-rgb), 0.4);
     position: relative;
     overflow: hidden;
 }
@@ -280,7 +276,7 @@ nav ul li a.active::after {
 
 .btn:hover {
     transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 15px 35px rgba(var(--btn-rgb), 0.6);
+    box-shadow: 0 15px 35px rgba(var(--accent-rgb), 0.6);
 }
 
 .btn:hover::before {
@@ -290,31 +286,31 @@ nav ul li a.active::after {
 .btn-secondary {
     background: transparent;
     color: var(--text);
-    border: 2px solid var(--btn-light);
+    border: 2px solid var(--accent);
     box-shadow: none;
 }
 
 .btn-secondary:hover {
-    background: var(--btn-light);
-    color: #FFFFFF;
+    background: var(--accent);
+    color: var(--primary);
 }
 
 .btn-whatsapp {
-    background: linear-gradient(135deg, var(--btn) 0%, var(--btn-dark) 100%);
-    box-shadow: 0 10px 25px rgba(var(--btn-rgb), 0.4);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    box-shadow: 0 10px 25px rgba(var(--accent-rgb), 0.4);
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    color: white;
+    color: var(--primary);
 }
 
 .btn-whatsapp:hover {
-    box-shadow: 0 15px 35px rgba(var(--btn-rgb), 0.6);
-    color: white;
+    box-shadow: 0 15px 35px rgba(var(--accent-rgb), 0.6);
+    color: var(--primary);
 }
 
 .btn-whatsapp i {
-    color: white;
+    color: var(--primary);
 }
 
 /* Botão WhatsApp Flutuante */
@@ -324,12 +320,12 @@ nav ul li a.active::after {
     right: 30px;
     width: 70px;
     height: 70px;
-    background: linear-gradient(135deg, var(--btn) 0%, var(--btn-dark) 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 25px rgba(var(--btn-rgb), 0.5);
+    box-shadow: 0 8px 25px rgba(var(--accent-rgb), 0.5);
     z-index: 1000;
     animation: pulse 2s infinite;
     transition: all 0.4s ease;
@@ -338,12 +334,12 @@ nav ul li a.active::after {
 
 .whatsapp-float:hover {
     transform: scale(1.15);
-    box-shadow: 0 12px 30px rgba(var(--btn-rgb), 0.7);
+    box-shadow: 0 12px 30px rgba(var(--accent-rgb), 0.7);
 }
 
 .whatsapp-float i {
     font-size: 35px;
-    color: white;
+    color: var(--primary);
 }
 
 /* Footer */
@@ -362,7 +358,7 @@ footer::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23D6336C" fill-opacity="0.02"><path d="M0,0 L100,100 M100,0 L0,100"/></g></svg>');
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23D4AF37" fill-opacity="0.02"><path d="M0,0 L100,100 M100,0 L0,100"/></g></svg>');
     pointer-events: none;
 }
 
