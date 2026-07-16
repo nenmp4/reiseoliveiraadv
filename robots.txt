@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://reiseoliveira.com.br/sitemap.xml
+Sitemap: https://reiseoliveiraadv.com.br/sitemap.xml
 
 # Bloquear áreas sensíveis
 Disallow: /admin/

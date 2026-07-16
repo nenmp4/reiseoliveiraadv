@@ -134,7 +134,7 @@ Options -Indexes
 # PREVENIR HOTLINKING (proteger imagens)
 <IfModule mod_rewrite.c>
     RewriteCond %{HTTP_REFERER} !^$
-    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?reiseoliveira\.com\.br [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?reiseoliveiraadv\.com\.br [NC]
     RewriteCond %{HTTP_REFERER} !^https?://(www\.)?google\.com [NC]
     RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [F,NC]
 </IfModule>

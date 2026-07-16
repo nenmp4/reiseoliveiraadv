@@ -9,20 +9,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Variáveis de cores baseadas na paleta fornecida */
+        /* Variáveis de cores - Tema Preto e Bordô (igual ao resto do site) */
         :root {
-            --primary: #1C545B;
-            --secondary: #3BA2AE;
-            --accent: #0FDFDF;
-            --light: #8DA5A8;
-            --dark: #2F6C6C;
-            --neutral: #B3B5B6;
-            --neutral-dark: #6E787D;
-            --text: #1a1a1a;
+            --primary: #000000;
+            --secondary: #121212;
+            --accent: #D6336C;
+            --accent-light: #E85D8A;
+            --accent-dark: #A61E4D;
+            --text: #FFFFFF;
+            --text-secondary: #CCCCCC;
+            --card-bg: #1A1A1A;
+            --border: #333333;
             --white: #FFFFFF;
-            --light-bg: #F8FAFB;
-            --card-bg: #FFFFFF;
         }
 
         /* Reset e estilos base */
@@ -40,7 +40,7 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.7;
             color: var(--text);
-            background: linear-gradient(135deg, var(--light-bg) 0%, #f0f5f6 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             overflow-x: hidden;
             min-height: 100vh;
             display: flex;
@@ -63,10 +63,11 @@
 
         /* Header */
         header {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(0, 0, 0, 0.95);
             padding: 1.2rem 0;
-            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
         }
 
         .header-container {
@@ -78,7 +79,7 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--text);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -87,7 +88,7 @@
         .logo-img {
             height: 55px;
             margin-right: 12px;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 5px 15px rgba(214, 51, 108, 0.3));
         }
 
         .logo span {
@@ -100,14 +101,14 @@
         }
 
         nav ul li {
-            margin-left: 2.5rem;
+            margin-left: 2rem;
         }
 
         nav ul li a {
-            color: var(--primary);
+            color: var(--text);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
         }
 
@@ -133,28 +134,29 @@
         .error-code {
             font-size: 8rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--accent);
             margin-bottom: 1rem;
             line-height: 1;
         }
 
         .error-title {
             font-size: 2.5rem;
-            color: var(--primary);
+            color: var(--text);
             margin-bottom: 1.5rem;
         }
 
         .error-message {
             font-size: 1.2rem;
-            color: var(--neutral-dark);
+            color: var(--text-secondary);
             margin-bottom: 3rem;
             line-height: 1.6;
         }
 
         .error-illustration {
-            font-size: 10rem;
-            margin-bottom: 2rem;
+            font-size: 6rem;
+            margin-bottom: 1rem;
             animation: pulse 2s infinite;
+            color: var(--accent);
         }
 
         @keyframes pulse {
@@ -163,23 +165,33 @@
         }
 
         .technical-info {
-            background: var(--white);
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: 12px;
             margin: 2rem 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
             border-left: 4px solid var(--accent);
+            text-align: left;
         }
 
         .technical-info h3 {
-            color: var(--primary);
+            color: var(--accent);
             margin-bottom: 1rem;
+        }
+
+        .technical-info p {
+            color: var(--text-secondary);
+        }
+
+        .technical-info ul {
+            color: var(--text-secondary);
         }
 
         .btn {
             display: inline-block;
             background: linear-gradient(135deg, #9B2242 0%, #7B1E3A 100%);
-            color: var(--white);
+            color: #FFFFFF;
             padding: 18px 40px;
             border-radius: 8px;
             text-decoration: none;
@@ -203,18 +215,54 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
+            color: white;
         }
 
         .btn-whatsapp:hover {
             box-shadow: 0 15px 35px rgba(123, 30, 58, 0.6);
+            color: white;
+        }
+
+        .immediate-help {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .immediate-help h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .immediate-help p {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .immediate-help p strong {
+            color: var(--text);
+        }
+
+        .immediate-help a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .immediate-help a:hover {
+            text-decoration: underline;
         }
 
         /* Footer */
         footer {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
-            color: var(--white);
+            background: linear-gradient(135deg, var(--primary) 0%, #1a1a1a 100%);
+            color: var(--text);
             padding: 3rem 0 2rem;
             margin-top: auto;
+            border-top: 1px solid var(--border);
         }
 
         .footer-content {
@@ -224,22 +272,60 @@
             margin-bottom: 2rem;
         }
 
+        .footer-content p {
+            color: var(--text-secondary);
+        }
+
         .footer-column h3 {
             color: var(--accent);
             margin-bottom: 1.5rem;
             font-size: 1.3rem;
         }
 
+        .footer-content a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer-content a:hover {
+            text-decoration: underline;
+        }
+
         .copyright {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--border);
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
+            color: var(--text-secondary);
         }
 
         /* Responsividade */
         @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav ul li {
+                margin: 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 1rem 0;
+            }
+
             .error-code {
                 font-size: 6rem;
             }
@@ -249,11 +335,7 @@
             }
 
             .error-illustration {
-                font-size: 6rem;
-            }
-
-            nav ul {
-                display: none;
+                font-size: 5rem;
             }
 
             .btn {
@@ -283,7 +365,7 @@
     <header>
         <div class="container header-container">
             <a href="index.html" class="logo">
-                <img src="https://conclusao.unieja.com.br/wp-content/uploads/2025/10/logo-reis-e-oliveira.png" alt="Reis e Oliveira Advocacia" class="logo-img">
+                <img src="https://conclusao.unieja.com.br/wp-content/uploads/2025/11/logo-reis.png" alt="Reis e Oliveira Advocacia" class="logo-img">
                 <span>Reis & Oliveira</span>
             </a>
             <nav>
@@ -300,40 +382,37 @@
     <!-- Conteúdo Principal -->
     <main class="error-content">
         <div class="container error-container">
-            <div class="error-illustration">🔧</div>
+            <div class="error-illustration"><i class="fas fa-screwdriver-wrench"></i></div>
             <div class="error-code">500</div>
             <h1 class="error-title">Erro do Servidor</h1>
             <p class="error-message">
-                Estamos enfrentando problemas técnicos momentâneos. 
+                Estamos enfrentando problemas técnicos momentâneos.
                 Nossa equipe já foi notificada e está trabalhando para resolver o mais rápido possível.
             </p>
 
             <div class="technical-info">
-                <h3>📋 O que aconteceu?</h3>
+                <h3><i class="fas fa-clipboard-list"></i> O que aconteceu?</h3>
                 <p>Nosso servidor está temporariamente indisponível. Isso pode ser devido a:</p>
-                <ul style="text-align: left; margin: 1rem 0; padding-left: 2rem;">
+                <ul style="margin: 1rem 0; padding-left: 2rem;">
                     <li>Manutenção programada</li>
                     <li>Problemas técnicos temporários</li>
                     <li>Alta demanda no momento</li>
                 </ul>
                 <p><strong>Você não precisa se preocupar - seus dados estão seguros!</strong></p>
             </div>
-            
+
             <div class="action-buttons">
-                <a href="index.html" class="btn">Tentar Novamente</a>
-                <a href="https://wa.me/5511941670852?text=Olá! Estou tentando acessar o site mas está com erro 500." class="btn btn-whatsapp" target="_blank">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893-.001-3.189-1.262-6.187-3.55-8.436"/>
-                    </svg>
-                    Contato Direto
+                <a href="index.html" class="btn"><i class="fas fa-rotate-right"></i> Tentar Novamente</a>
+                <a href="https://wa.me/5511941117545?text=Olá! Estou tentando acessar o site mas está com erro 500." class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Contato Direto
                 </a>
             </div>
 
-            <div style="margin-top: 3rem; padding: 1.5rem; background: var(--white); border-radius: 12px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);">
-                <h3 style="color: var(--primary); margin-bottom: 1rem;">⚡ Atendimento Imediato</h3>
-                <p style="color: var(--neutral-dark); margin-bottom: 1rem;">Enquanto resolvemos o problema, você pode nos contatar diretamente:</p>
-                <p style="font-weight: 600; color: var(--primary);">📱 WhatsApp: <a href="https://wa.me/5511941670852" style="color: var(--accent); text-decoration: none;">+55 11 94167-0852</a></p>
-                <p style="font-weight: 600; color: var(--primary);">✉️ E-mail: contato@reiseoliveira.com.br</p>
+            <div class="immediate-help">
+                <h3><i class="fas fa-bolt"></i> Atendimento Imediato</h3>
+                <p>Enquanto resolvemos o problema, você pode nos contatar diretamente:</p>
+                <p><strong>WhatsApp:</strong> <a href="https://wa.me/5511941117545">+55 11 94111-7545</a></p>
+                <p><strong>E-mail:</strong> contato@reiseoliveira.com.br</p>
             </div>
         </div>
     </main>
@@ -344,13 +423,13 @@
             <div class="footer-content">
                 <div>
                     <h3>Reis & Oliveira Advocacia</h3>
-                    <p style="opacity: 0.8;">Especialistas em Direito Digital e Imobiliário, defendendo seus direitos com excelência e comprometimento.</p>
+                    <p>Especialistas em Direito Digital e Imobiliário, defendendo seus direitos com excelência e comprometimento.</p>
                 </div>
                 <div>
                     <h3>Contato Direto</h3>
-                    <p style="margin-bottom: 0.5rem; opacity: 0.9;">📱 <a href="https://wa.me/5511941670852" style="color: var(--accent); text-decoration: none;">+55 11 94167-0852</a></p>
-                    <p style="margin-bottom: 0.5rem; opacity: 0.9;">✉️ contato@reiseoliveira.com.br</p>
-                    <p style="opacity: 0.9;">📍 Av. Paulista, 1000 - São Paulo/SP</p>
+                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5511941117545">+55 11 94111-7545</a></p>
+                    <p><i class="fas fa-envelope"></i> contato@reiseoliveira.com.br</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 777 - Sala 102 Anexo 1207 - São Paulo/SP</p>
                 </div>
             </div>
             <div class="copyright">
