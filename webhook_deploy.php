@@ -33,7 +33,13 @@ if (!hash_equals($expected, $sigHeader)) {
     exit('Forbidden — invalid signature');
 }
 
-$data   = json_decode($payload, true);
+// Aceita tanto "application/json" quanto "application/x-www-form-urlencoded"
+// (a assinatura acima já validou o corpo bruto nos dois casos)
+$data = json_decode($payload, true);
+if (!is_array($data) && isset($_POST['payload'])) {
+    $data = json_decode($_POST['payload'], true);
+}
+
 $branch = $data['ref'] ?? '';
 
 if ($branch !== 'refs/heads/main') {
