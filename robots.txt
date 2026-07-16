@@ -46,5 +46,3 @@ Disallow: /
 
 User-agent: PetalBot
 Disallow: /
-
-# teste auto-deploy 2026-07-16
