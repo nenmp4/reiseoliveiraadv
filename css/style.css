@@ -156,10 +156,14 @@ header.scrolled {
 }
 
 .logo-img {
-    height: 55px;
-    margin-right: 12px;
+    height: 80px;
     animation: float 4s ease-in-out infinite;
     filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.3));
+    transition: height 0.4s ease;
+}
+
+header.scrolled .logo-img {
+    height: 60px;
 }
 
 .logo span {
