@@ -820,6 +820,16 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Registra o acesso no painel (1 por IP por dia, sem bloquear a página)
+            fetch('api/track-visit.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    origem: window.location.search,
+                    referrer: document.referrer
+                })
+            }).catch(() => {});
+
             const mobileMenu = document.querySelector('.mobile-menu');
             const mainNav = document.getElementById('main-nav');
 
@@ -878,6 +888,12 @@ ${detalhes}
 
 Gostaria de falar com um especialista.`;
 
+                fetch('api/save-lead.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ nome, telefone, situacao, multa25, atraso180, valor, origem: window.location.search })
+                }).catch(() => {});
+
                 const textoCodificado = encodeURIComponent(texto);
                 gtagReportConversion(`https://wa.me/5511941117545?text=${textoCodificado}`);
 
@@ -930,6 +946,12 @@ Gostaria de falar com um especialista.`;
 ${detalhes}
 
 Gostaria de falar com um especialista.`;
+
+                fetch('api/save-lead.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ nome, telefone, situacao, multa25, atraso180, origem: window.location.search })
+                }).catch(() => {});
 
                 const textoCodificado = encodeURIComponent(texto);
                 gtagReportConversion(`https://wa.me/5511941117545?text=${textoCodificado}`);

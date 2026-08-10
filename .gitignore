@@ -2,3 +2,7 @@
 .webhook_secret
 .deploy_pending
 .deploy.log
+
+# Painel de leads: senha e dados dos leads/acessos (nunca versionar)
+admin/.admin_password
+data/*.jsonl
