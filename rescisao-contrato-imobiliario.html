@@ -811,7 +811,8 @@
                 </div>
             </div>
             <div style="text-align: center; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--text-secondary);">
-                <p>&copy; 2025 Reis e Oliveira Advocacia. Todos os direitos reservados.</p>
+                <p>&copy; <span id="copyright-year">2025</span> Reis e Oliveira Advocacia. Todos os direitos reservados.</p>
+            <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
             </div>
         </div>
     </footer>

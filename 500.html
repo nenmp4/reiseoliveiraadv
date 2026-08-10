@@ -435,7 +435,8 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Reis e Oliveira Advocacia. Todos os direitos reservados.</p>
+                <p>&copy; <span id="copyright-year">2025</span> Reis e Oliveira Advocacia. Todos os direitos reservados.</p>
+            <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
             </div>
         </div>
     </footer>
