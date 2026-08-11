@@ -22,12 +22,12 @@
          abaixo (aqui no <head> e nas 4 chamadas gtagReportConversion
          mais abaixo no <body>).
          ============================================================ -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-SEU_ID_AQUI"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18383728931"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-        gtag('config', 'AW-SEU_ID_AQUI');
+        gtag('config', 'AW-18383728931');
 
         // Dispara a conversão e só então segue pro WhatsApp (com fallback
         // de segurança caso o gtag não carregue a tempo).
@@ -38,7 +38,7 @@
                 }
             };
             gtag('event', 'conversion', {
-                'send_to': 'AW-SEU_ID_AQUI/SEU_ROTULO_AQUI',
+                'send_to': 'AW-18383728931/SEU_ROTULO_AQUI',
                 'event_callback': finalizar
             });
             setTimeout(finalizar, 1000); // fallback: garante o redirect mesmo se o gtag travar
