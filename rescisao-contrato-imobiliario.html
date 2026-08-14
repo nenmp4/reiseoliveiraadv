@@ -827,7 +827,8 @@
                 body: JSON.stringify({
                     origem: window.location.search,
                     referrer: document.referrer
-                })
+                }),
+                keepalive: true
             }).catch(() => {});
 
             const mobileMenu = document.querySelector('.mobile-menu');
@@ -891,7 +892,8 @@ Gostaria de falar com um especialista.`;
                 fetch('api/save-lead.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ nome, telefone, situacao, multa25, atraso180, valor, origem: window.location.search })
+                    body: JSON.stringify({ nome, telefone, situacao, multa25, atraso180, valor, origem: window.location.search }),
+                    keepalive: true
                 }).catch(() => {});
 
                 const textoCodificado = encodeURIComponent(texto);
@@ -950,7 +952,8 @@ Gostaria de falar com um especialista.`;
                 fetch('api/save-lead.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ nome, telefone, situacao, multa25, atraso180, origem: window.location.search })
+                    body: JSON.stringify({ nome, telefone, situacao, multa25, atraso180, origem: window.location.search }),
+                    keepalive: true
                 }).catch(() => {});
 
                 const textoCodificado = encodeURIComponent(texto);
